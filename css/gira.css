@@ -1,0 +1,432 @@
+/* ============================================================
+   css/gira.css — Légamo · Gira Chile 2026: Círculo de Fuego
+   ============================================================ */
+
+/* ── Layout ────────────────────────────────────────────────── */
+.gira-body {
+  padding-top: var(--nav-h);
+}
+
+/* ── HERO ──────────────────────────────────────────────────── */
+.gira-hero {
+  position: relative;
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--bg);
+  padding-bottom: clamp(60px, 8vw, 100px);
+}
+
+/* Fondo: gradiente radial cálido muy sutil + grid */
+.gira-hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.gira-hero__bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 70px 70px;
+}
+
+/* Glow cálido — evoca fuego sin ser literal */
+.gira-hero__bg-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%,
+      rgba(200, 80, 0, .10) 0%,
+      rgba(166, 255, 0, .03) 50%,
+      transparent 75%);
+}
+
+/* Número año decorativo */
+.gira-hero__year {
+  position: absolute;
+  top: 50%;
+  right: var(--px);
+  transform: translateY(-50%);
+  font-family: var(--font-d);
+  font-size: clamp(120px, 22vw, 300px);
+  color: rgba(255,255,255,.025);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: -4px;
+}
+
+.gira-hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.gira-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+  transition: color .2s ease;
+}
+.gira-hero__back:hover { color: var(--accent); }
+
+.gira-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.gira-hero__tag {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.gira-hero__sep-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.gira-hero__banda {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Título principal */
+.gira-hero__title {
+  font-family: var(--font-d);
+  font-size: clamp(72px, 14vw, 180px);
+  line-height: 0.85;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+  /* Degradado de texto: blanco → naranja-tierra sutil */
+  background: linear-gradient(
+    160deg,
+    #ffffff 0%,
+    #ffffff 55%,
+    rgba(220, 120, 40, .85) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gira-hero__subtitle {
+  font-size: clamp(13px, 2vw, 16px);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 48px;
+}
+
+.gira-hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: aFadeIn .8s ease .4s forwards;
+}
+
+@keyframes aFadeIn { to { opacity: 1; } }
+
+/* Línea divisoria decorativa */
+.gira-hero__line {
+  position: absolute;
+  bottom: 0;
+  left: var(--px);
+  right: var(--px);
+  height: 1px;
+  background: linear-gradient(to right, var(--accent), transparent 60%);
+}
+
+/* ── FECHAS ────────────────────────────────────────────────── */
+.gira-fechas {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background: var(--surface);
+}
+
+.gira-fechas__header {
+  margin-bottom: 48px;
+}
+
+.gira-section-label {
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.gira-section-title {
+  font-family: var(--font-d);
+  font-size: clamp(40px, 6vw, 80px);
+  letter-spacing: 2px;
+  line-height: 0.9;
+}
+
+.gira-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--accent);
+  margin: 22px 0 0;
+}
+
+/* Lista de fechas */
+.fechas-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.fecha-card {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left .25s ease, background .25s ease;
+  cursor: default;
+}
+
+.fecha-card:first-child { border-top: 1px solid var(--border); }
+
+.fecha-card:hover {
+  padding-left: 16px;
+  background: rgba(166, 255, 0, .02);
+}
+
+/* Fecha */
+.fecha-card__date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.fecha-card__dia {
+  font-family: var(--font-d);
+  font-size: 48px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.fecha-card__mesano {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Info */
+.fecha-card__info { min-width: 0; }
+
+.fecha-card__ciudad {
+  font-family: var(--font-d);
+  font-size: clamp(24px, 3.5vw, 40px);
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.fecha-card__venue {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: .5px;
+  margin-top: 6px;
+}
+
+/* Acción / estado */
+.fecha-card__action { text-align: right; flex-shrink: 0; }
+
+.fecha-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-family: var(--font-b);
+  font-weight: 400;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.fecha-card__btn--tickets {
+  background: var(--accent);
+  color: #000;
+  border: 1px solid var(--accent);
+}
+.fecha-card__btn--tickets:hover { background: var(--accentH); border-color: var(--accentH); }
+
+.fecha-card__btn--pronto {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  pointer-events: none;
+}
+
+.fecha-card__btn--agotado {
+  background: transparent;
+  color: #ff4444;
+  border: 1px solid rgba(255,68,68,.3);
+  pointer-events: none;
+}
+
+/* ── AFICHES ───────────────────────────────────────────────── */
+.gira-afiches {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background: var(--bg);
+}
+
+.afiches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.afiche-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--surf2);
+  border: 1px solid var(--border);
+  transition: border-color .25s ease;
+}
+
+.afiche-item:hover { border-color: rgba(166, 255, 0, .2); }
+
+.afiche-item .ph {
+  width: 100%;
+  aspect-ratio: 2/3;
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 16px;
+  text-align: center;
+}
+
+.afiche-item img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.afiche-item:hover img { transform: scale(1.03); }
+
+.afiche-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.afiche-item:hover .afiche-overlay { opacity: 1; }
+
+.afiche-info {
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.afiche-ciudad {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--text);
+}
+
+.afiche-fecha {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+
+/* ── CTA FINAL ─────────────────────────────────────────────── */
+.gira-cta {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background: var(--surface);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gira-cta__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 50% 100%,
+    rgba(166, 255, 0, .04) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.gira-cta__title {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 5vw, 64px);
+  letter-spacing: 2px;
+  line-height: 0.9;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.gira-cta__sub {
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.gira-cta__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .gira-hero__title { line-height: 0.88; }
+
+  .fecha-card {
+    grid-template-columns: 70px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  .fecha-card__action { display: none; }
+  .fecha-card__ciudad { font-size: 22px; }
+  .fecha-card__dia    { font-size: 38px; }
+
+  .afiches-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .gira-hero__title { letter-spacing: 0; }
+  .afiches-grid { grid-template-columns: 1fr; }
+  .fecha-card__action { display: block; }
+}

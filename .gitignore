@@ -1,0 +1,22 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Video demasiado grande para GitHub (198MB — subir al servidor directamente)
+assets/video/laberinto de cangrejo.mp4
+
+# Archivos WAV (archivos fuente de audio, no necesarios en web)
+*.wav
+*.WAV
+
+# Archivos viejos del sitio anterior (ya reemplazados)
+rider.html
+style.css
+logo.jfif
+estructura_archivos.txt
+
+# Editores
+.vscode/
+*.suo
+*.user

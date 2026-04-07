@@ -1,0 +1,38 @@
+[
+  {
+    "titulo":  "Jaco",
+    "album":   "Círculo de Fuego",
+    "año":     "2026",
+    "archivo": "assets/musica/01-Jaco-.mp3"
+  },
+  {
+    "titulo":  "De Facto",
+    "album":   "Círculo de Fuego",
+    "año":     "2026",
+    "archivo": "assets/musica/02-De-Facto-.mp3"
+  },
+  {
+    "titulo":  "Walve cobra su parte",
+    "album":   "Círculo de Fuego",
+    "año":     "2026",
+    "archivo": "assets/musica/03-Walve-cobra-su-parte.mp3"
+  },
+  {
+    "titulo":  "Tijereta",
+    "album":   "Círculo de Fuego",
+    "año":     "2026",
+    "archivo": "assets/musica/06-Tijereta.mp3"
+  },
+  {
+    "titulo":  "Campanas",
+    "album":   "Círculo de Fuego",
+    "año":     "2026",
+    "archivo": "assets/musica/07-Campanas-.mp3"
+  },
+  {
+    "titulo":  "Verano 2001",
+    "album":   "Coraje",
+    "año":     "2021",
+    "archivo": "assets/musica/Verano2001.mp3"
+  }
+]

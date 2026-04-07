@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Légamo — Banda experimental de Valparaíso, Chile. Punk, free jazz, hip hop y música experimental desde 2016.">
+  <meta property="og:title"       content="Légamo">
+  <meta property="og:description" content="Banda experimental de Valparaíso, Chile.">
+  <meta property="og:type"        content="website">
+  <title>Légamo</title>
+
+  <!-- Preconexión a Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVEGACIÓN STICKY
+  ══════════════════════════════════════════════════════════ -->
+  <header class="site-nav" id="site-nav" role="banner">
+    <a href="#inicio" class="site-nav__logo">
+      <img src="assets/logo.png" alt="Légamo — Volver al inicio">
+    </a>
+
+    <nav class="site-nav__links" role="navigation" aria-label="Navegación principal">
+      <a href="#bio">Sobre Légamo</a>
+      <a href="#discografia">Discografía</a>
+      <a href="#galeria">Galería</a>
+      <a href="#shows">Shows</a>
+      <a href="#contacto">Contacto</a>
+      <a href="produccion.html" class="nav-cta">Para Productores</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════
+       MENÚ MÓVIL
+  ══════════════════════════════════════════════════════════ -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <a href="#bio">Sobre Légamo</a>
+    <a href="#discografia">Discografía</a>
+    <a href="#galeria">Galería</a>
+    <a href="#shows">Shows</a>
+    <a href="#contacto">Contacto</a>
+    <a href="produccion.html" class="mm-cta">Para Productores</a>
+    <div class="mobile-menu__social">
+      <a href="https://www.youtube.com/@legamo3147" target="_blank" rel="noopener" aria-label="YouTube">
+        <img src="assets/icons/youtube.svg" alt="YouTube">
+      </a>
+      <a href="https://www.instagram.com/legamo_/" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="assets/icons/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ" target="_blank" rel="noopener" aria-label="Spotify">
+        <img src="assets/icons/spotifynegro.svg" alt="Spotify">
+      </a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       01 · HERO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="inicio" class="hero">
+    <!-- Video de fondo
+         Agregar el archivo a assets/video/legamo-bg.mp4 (y/o .webm)
+         Recomendado: duración 15-60s, sin audio, resolución 1080p o 720p
+         Formatos: MP4 (H.264) como principal, WebM como fallback opcional -->
+    <div class="hero__video-wrap" aria-hidden="true">
+      <video class="hero__video" autoplay muted loop playsinline>
+        <source src="assets/video/legamo-bg.mp4"  type="video/mp4">
+        <source src="assets/video/legamo-bg.webm" type="video/webm">
+      </video>
+    </div>
+
+    <div class="hero__grid"   aria-hidden="true"></div>
+    <div class="hero__glow"   aria-hidden="true"></div>
+
+    <!-- CTA gira (esquina superior derecha, debajo de la nav) -->
+    <div class="hero__cta-gira">
+      <a href="gira.html">Gira Chile 2026 ↗</a>
+    </div>
+
+    <!-- Contenido central -->
+    <div class="hero__content">
+      <img src="assets/logo.png" alt="Légamo" class="hero__logo" id="hero-logo">
+      <div class="hero__meta">
+        <p class="hero__origin">Valparaíso · Chile · 2016</p>
+        <p class="hero__genres">Punk / Free Jazz / Hip Hop / Experimental</p>
+      </div>
+    </div>
+
+    <!-- Nav inferior -->
+    <nav class="hero__nav" aria-label="Secciones del sitio">
+      <a href="#bio"          class="hero__nav-link">Sobre Légamo</a>
+      <span class="hero__sep" aria-hidden="true">/</span>
+      <a href="#discografia"  class="hero__nav-link">Discografía</a>
+      <span class="hero__sep" aria-hidden="true">/</span>
+      <a href="#galeria"      class="hero__nav-link">Galería</a>
+      <span class="hero__sep" aria-hidden="true">/</span>
+      <a href="#shows"        class="hero__nav-link">Shows</a>
+      <span class="hero__sep" aria-hidden="true">/</span>
+      <a href="#contacto"     class="hero__nav-link">Contacto</a>
+    </nav>
+
+    <!-- Indicador de scroll -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       02 · BIO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="bio" class="section bio">
+    <div class="container">
+      <span class="section__num" aria-hidden="true">01</span>
+
+      <div class="reveal">
+        <p class="section__subtitle">Sobre Légamo</p>
+        <h2 class="section__title">PUNK<br>VISCERAL</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="bio__grid">
+        <!-- Texto -->
+        <div class="bio__text">
+          <p class="bio__lead reveal d1">
+            Légamo nace en 2016 en el histórico Barrio Puerto de Valparaíso, impulsado
+            por una necesidad de expresión visceral que cruza los límites del punk,
+            el free jazz, el hip hop y la música experimental.
+          </p>
+          <p class="reveal d2">
+            Desde sus inicios como dúo —con bajo, batería y voces—, el proyecto encarnó
+            una búsqueda sonora ligada al territorio y al cuerpo, con letras intensas,
+            cargadas de crítica, memoria y poesía directa.
+          </p>
+          <p class="reveal d2">
+            Con el paso del tiempo, la formación fue creciendo e integrando nuevos instrumentos:
+            saxofón, guitarras, sintetizadores y teclados, ampliando las posibilidades expresivas
+            del grupo sin abandonar su carácter crudo y orgánico. Esta evolución se refleja
+            claramente en su discografía, una línea de tiempo que da cuenta de una identidad
+            coherente y a la vez en constante transformación.
+          </p>
+          <p class="reveal d3">
+            Légamo ha mantenido una presencia activa tanto en la escena porteña como santiaguina,
+            con una fuerte vocación por la autogestión. Han realizado giras por el sur de Chile,
+            Buenos Aires y Lima, gracias al Fondo de la Música (2024).
+          </p>
+          <a href="produccion.html" class="btn btn--outline reveal d4">
+            Información para productores →
+          </a>
+        </div>
+
+        <!-- Imagen -->
+        <div class="bio__image reveal-r d2">
+          <div class="bio__img-wrap">
+            <!-- 📷 PLACEHOLDER: reemplazar por <img src="assets/galeria/banda-prensa.jpg" alt="Légamo — Foto de prensa"> -->
+            <img src="assets/galeria/banda-prensa.jpg" alt="Légamo — Foto de prensa">Foto Banda</div>
+          </div>
+          <p class="bio__img-caption">Légamo — Fotografía de prensa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       03 · DISCOGRAFÍA
+  ══════════════════════════════════════════════════════════ -->
+  <section id="discografia" class="section discografia">
+    <div class="container">
+      <span class="section__num" aria-hidden="true">02</span>
+
+      <div class="reveal">
+        <p class="section__subtitle">Discografía</p>
+        <h2 class="section__title">SIETE<br>TRABAJOS</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="discos-grid">
+
+        <!-- Álbum 1 -->
+        <article class="disco reveal d1">
+          <div class="disco__cover">
+            <img src="assets/discos/en-la-trampa.jpg" alt="En la Trampa">
+            <div class="disco__overlay">
+              <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+                 target="_blank" rel="noopener" class="btn btn--accent">Escuchar</a>
+            </div>
+          </div>
+          <div class="disco__info">
+            <p class="disco__nombre">En la Trampa</p>
+            <p class="disco__año">2017</p>
+          </div>
+        </article>
+
+        <!-- Álbum 2 -->
+        <article class="disco reveal d2">
+          <div class="disco__cover">
+            <img src="assets/discos/legamo.jpg" alt="Légamo">
+            <div class="disco__overlay">
+              <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+                 target="_blank" rel="noopener" class="btn btn--accent">Escuchar</a>
+            </div>
+          </div>
+          <div class="disco__info">
+            <p class="disco__nombre">Légamo</p>
+            <p class="disco__año">2019</p>
+          </div>
+        </article>
+
+        <!-- Álbum 3 -->
+        <article class="disco reveal d3">
+          <div class="disco__cover">
+            <img src="assets/discos/purga.jpg" alt="Pûrga">
+            <div class="disco__overlay">
+              <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+                 target="_blank" rel="noopener" class="btn btn--accent">Escuchar</a>
+            </div>
+          </div>
+          <div class="disco__info">
+            <p class="disco__nombre">Pûrga</p>
+            <p class="disco__año">2020</p>
+          </div>
+        </article>
+
+        <!-- Álbum 4 -->
+        <article class="disco reveal d1">
+          <div class="disco__cover">
+            <img src="assets/discos/voces-demo.jpg" alt="…Y si escucho mis voces">
+            <div class="disco__overlay">
+              <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+                 target="_blank" rel="noopener" class="btn btn--accent">Escuchar</a>
+            </div>
+          </div>
+          <div class="disco__info">
+            <p class="disco__nombre">…Y si escucho mis voces</p>
+            <p class="disco__año">Demo · 2020</p>
+          </div>
+        </article>
+
+        <!-- Álbum 5 -->
+        <article class="disco reveal d2">
+          <div class="disco__cover">
+            <img src="assets/discos/flores-sencillo.jpg" alt="De nuestras entrañas nacerán flores">
+            <div class="disco__overlay">
+              <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+                 target="_blank" rel="noopener" class="btn btn--accent">Escuchar</a>
+            </div>
+          </div>
+          <div class="disco__info">
+            <p class="disco__nombre">De nuestras entrañas…</p>
+            <p class="disco__año">Sencillo · 2020</p>
+          </div>
+        </article>
+
+        <!-- Álbum 6 -->
+        <article class="disco reveal d3">
+          <div class="disco__cover">
+            <img src="assets/discos/coraje.jpg" alt="Coraje">
+            <div class="disco__overlay">
+              <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+                 target="_blank" rel="noopener" class="btn btn--accent">Escuchar</a>
+            </div>
+          </div>
+          <div class="disco__info">
+            <p class="disco__nombre">Coraje</p>
+            <p class="disco__año">2021</p>
+          </div>
+        </article>
+
+        <!-- Álbum 7 -->
+        <article class="disco reveal d1">
+          <div class="disco__cover">
+            <img src="assets/discos/circulo-de-fuego.jpg" alt="Círculo de Fuego">
+            <div class="disco__overlay">
+              <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+                 target="_blank" rel="noopener" class="btn btn--accent">Escuchar</a>
+            </div>
+          </div>
+          <div class="disco__info">
+            <p class="disco__nombre">Círculo de Fuego</p>
+            <p class="disco__año">2025</p>
+          </div>
+        </article>
+
+      </div><!-- /discos-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       04 · GALERÍA
+  ══════════════════════════════════════════════════════════ -->
+  <section id="galeria" class="section galeria">
+    <div class="container">
+      <span class="section__num" aria-hidden="true">03</span>
+
+      <div class="reveal">
+        <p class="section__subtitle">Galería</p>
+        <h2 class="section__title">IMÁGENES</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="galeria-columns reveal d1" id="galeria-grid">
+
+        <div class="galeria-item" data-caption="Légamo">
+          <img src="assets/galeria/1.jpg" alt="Légamo">
+          <div class="galeria-item__overlay"><div class="galeria-item__icon">+</div></div>
+        </div>
+
+        <div class="galeria-item" data-caption="Légamo">
+          <img src="assets/galeria/2.jpg" alt="Légamo">
+          <div class="galeria-item__overlay"><div class="galeria-item__icon">+</div></div>
+        </div>
+
+        <div class="galeria-item" data-caption="Légamo">
+          <img src="assets/galeria/3.jpg" alt="Légamo">
+          <div class="galeria-item__overlay"><div class="galeria-item__icon">+</div></div>
+        </div>
+
+        <div class="galeria-item" data-caption="Légamo">
+          <img src="assets/galeria/4.jpg" alt="Légamo">
+          <div class="galeria-item__overlay"><div class="galeria-item__icon">+</div></div>
+        </div>
+
+        <div class="galeria-item" data-caption="Légamo">
+          <img src="assets/galeria/5.jpg" alt="Légamo">
+          <div class="galeria-item__overlay"><div class="galeria-item__icon">+</div></div>
+        </div>
+
+        <div class="galeria-item" data-caption="Légamo">
+          <img src="assets/galeria/6.jpg" alt="Légamo">
+          <div class="galeria-item__overlay"><div class="galeria-item__icon">+</div></div>
+        </div>
+
+        <div class="galeria-item" data-caption="Légamo">
+          <img src="assets/galeria/7.jpg" alt="Légamo">
+          <div class="galeria-item__overlay"><div class="galeria-item__icon">+</div></div>
+        </div>
+
+        <div class="galeria-item" data-caption="Légamo">
+          <img src="assets/galeria/10.jpg" alt="Légamo">
+          <div class="galeria-item__overlay"><div class="galeria-item__icon">+</div></div>
+        </div>
+
+      </div><!-- /galeria-columns -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       05 · SHOWS / GIRA
+  ══════════════════════════════════════════════════════════ -->
+  <section id="shows" class="section shows">
+    <div class="container">
+      <span class="section__num" aria-hidden="true">04</span>
+
+      <div class="reveal">
+        <p class="section__subtitle">Agenda 2026</p>
+        <h2 class="section__title">CÍRCULO<br>DE FUEGO</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="shows__gira-banner reveal d1">
+        <span class="gira-badge">Gira Chile 2026</span>
+      </div>
+
+      <!-- Lista de shows (preview — fechas completas en gira.html) -->
+      <div class="shows-list reveal d2">
+
+        <!-- Show 1 — actualizar con fechas reales -->
+        <div class="show-card">
+          <div class="show-card__fecha">
+            <span class="show-card__dia">—</span>
+            <span class="show-card__mes">2026</span>
+          </div>
+          <div class="show-card__info">
+            <p class="show-card__ciudad">Santiago</p>
+            <p class="show-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="show-card__action">
+            <span class="show-card__estado">Próximamente</span>
+          </div>
+        </div>
+
+        <!-- Show 2 -->
+        <div class="show-card">
+          <div class="show-card__fecha">
+            <span class="show-card__dia">—</span>
+            <span class="show-card__mes">2026</span>
+          </div>
+          <div class="show-card__info">
+            <p class="show-card__ciudad">Valparaíso</p>
+            <p class="show-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="show-card__action">
+            <span class="show-card__estado">Próximamente</span>
+          </div>
+        </div>
+
+        <!-- Show 3 -->
+        <div class="show-card">
+          <div class="show-card__fecha">
+            <span class="show-card__dia">—</span>
+            <span class="show-card__mes">2026</span>
+          </div>
+          <div class="show-card__info">
+            <p class="show-card__ciudad">Concepción</p>
+            <p class="show-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="show-card__action">
+            <span class="show-card__estado">Próximamente</span>
+          </div>
+        </div>
+
+      </div><!-- /shows-list -->
+
+      <div class="shows__cta reveal d3">
+        <a href="gira.html" class="btn btn--accent">Ver gira completa →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       06 · CONTACTO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="contacto" class="section contacto">
+    <div class="container">
+      <span class="section__num" aria-hidden="true">05</span>
+
+      <div class="reveal">
+        <p class="section__subtitle">Contacto</p>
+        <h2 class="section__title">ESCRÍBENOS</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="contacto-grid">
+
+        <!-- Info -->
+        <div class="reveal-l d1">
+          <p class="contacto__email">
+            <a href="mailto:legamo@proyectoenjambre.cl">
+              legamo@<br>proyectoenjambre.cl
+            </a>
+          </p>
+
+          <div class="contacto__redes">
+            <a href="https://www.youtube.com/@legamo3147"
+               target="_blank" rel="noopener" aria-label="YouTube">
+              <img src="assets/icons/youtube.svg" alt="YouTube">
+            </a>
+            <a href="https://www.instagram.com/legamo_/"
+               target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="assets/icons/instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+               target="_blank" rel="noopener" aria-label="Spotify">
+              <img src="assets/icons/spotifynegro.svg" alt="Spotify">
+            </a>
+          </div>
+
+          <div class="contacto__produccion">
+            <p>¿Eres productor o técnico de sonido?</p>
+            <a href="produccion.html" class="btn btn--ghost">Ir a Producción →</a>
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <div class="reveal-r d2">
+          <form id="form-contacto" novalidate>
+            <div class="form-group">
+              <input type="text"  name="nombre"  placeholder="Nombre"
+                     required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <input type="email" name="correo"  placeholder="Correo electrónico"
+                     required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <textarea name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--accent">Enviar mensaje</button>
+            <p id="form-mensaje" class="form-mensaje" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div><!-- /contacto-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/logo.png" alt="Légamo" class="site-footer__logo">
+      <p class="site-footer__copy">© 2026 Légamo — Valparaíso, Chile</p>
+      <a href="produccion.html" class="site-footer__link">Para Productores</a>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       REPRODUCTOR DE AUDIO
+  ══════════════════════════════════════════════════════════ -->
+  <div class="audio-player" id="audio-player" role="region" aria-label="Reproductor de música">
+
+    <!-- Track info (izquierda) -->
+    <div class="ap__track">
+      <div class="ap__cover">
+        <div class="ph">♪</div>
+      </div>
+      <div class="ap__meta">
+        <p class="ap__nombre" id="ap-nombre">—</p>
+        <p class="ap__album"  id="ap-album">Légamo</p>
+      </div>
+    </div>
+
+    <!-- Controles (centro) -->
+    <div class="ap__controls">
+      <div class="ap__btns">
+        <button class="ap__btn"          id="ap-prev"  aria-label="Anterior"></button>
+        <button class="ap__btn ap__btn--play" id="ap-play" aria-label="Reproducir / Pausar"></button>
+        <button class="ap__btn"          id="ap-next"  aria-label="Siguiente"></button>
+      </div>
+      <div class="ap__progress-wrap">
+        <div class="ap__progress" id="ap-progress" role="slider"
+             aria-label="Progreso de reproducción" aria-valuemin="0" aria-valuemax="100">
+          <div class="ap__bar" id="ap-bar"></div>
+        </div>
+        <div class="ap__time">
+          <span id="ap-time-cur">0:00</span>
+          <span> / </span>
+          <span id="ap-time-tot">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Playlist (derecha) -->
+    <div class="ap__right">
+      <button class="ap__playlist-btn" id="ap-playlist-btn" aria-label="Mostrar lista de reproducción"></button>
+      <div class="ap__playlist" id="ap-playlist" role="listbox" aria-label="Lista de reproducción"></div>
+    </div>
+
+    <audio id="audio-element" preload="metadata"></audio>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════════ -->
+  <script src="js/nav.js"></script>
+  <script src="js/scroll-reveal.js"></script>
+  <script src="js/audio-player.js"></script>
+  <script src="js/lightbox.js"></script>
+
+  <!-- Formulario de contacto -->
+  <script>
+    (function () {
+      var form = document.getElementById('form-contacto');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var msg = document.getElementById('form-mensaje');
+        var fd  = new FormData(form);
+
+        btn.textContent = 'Enviando…';
+        btn.disabled = true;
+
+        fetch('send_email.php', { method: 'POST', body: fd })
+          .then(function (r) { return r.text(); })
+          .then(function (res) {
+            msg.textContent   = res;
+            msg.style.color   = '#a6ff00';
+            form.reset();
+          })
+          .catch(function () {
+            msg.textContent = 'Ocurrió un error. Inténtalo más tarde.';
+            msg.style.color = '#ff4444';
+          })
+          .finally(function () {
+            btn.textContent = 'Enviar mensaje';
+            btn.disabled    = false;
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>

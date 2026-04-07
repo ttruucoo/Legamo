@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Légamo — Gira Chile 2026: Círculo de Fuego. Fechas, ciudades, entradas y material descargable.">
+  <title>Círculo de Fuego — Gira Chile 2026 | Légamo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/gira.css">
+</head>
+
+<body class="gira-body">
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVEGACIÓN STICKY
+  ══════════════════════════════════════════════════════════ -->
+  <header class="site-nav scrolled" id="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" style="opacity:1;pointer-events:all;transform:none;">
+      <img src="assets/logo.png" alt="Légamo — Volver al inicio">
+    </a>
+
+    <nav class="site-nav__links" role="navigation" aria-label="Navegación principal">
+      <a href="index.html#bio"         style="opacity:1;transform:none;">Sobre Légamo</a>
+      <a href="index.html#discografia" style="opacity:1;transform:none;">Discografía</a>
+      <a href="index.html#galeria"     style="opacity:1;transform:none;">Galería</a>
+      <a href="gira.html"              style="opacity:1;transform:none;" class="nav-cta">Gira 2026</a>
+      <a href="index.html#contacto"    style="opacity:1;transform:none;">Contacto</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <a href="index.html#bio">Sobre Légamo</a>
+    <a href="index.html#discografia">Discografía</a>
+    <a href="index.html#galeria">Galería</a>
+    <a href="gira.html" class="mm-cta">Gira 2026</a>
+    <a href="index.html#contacto">Contacto</a>
+    <a href="produccion.html">Para Productores</a>
+    <div class="mobile-menu__social">
+      <a href="https://www.youtube.com/@legamo3147" target="_blank" rel="noopener">
+        <img src="assets/icons/youtube.svg" alt="YouTube">
+      </a>
+      <a href="https://www.instagram.com/legamo_/" target="_blank" rel="noopener">
+        <img src="assets/icons/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ" target="_blank" rel="noopener">
+        <img src="assets/icons/spotifynegro.svg" alt="Spotify">
+      </a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
+  <section class="gira-hero">
+    <div class="gira-hero__bg" aria-hidden="true">
+      <div class="gira-hero__bg-grid"></div>
+      <div class="gira-hero__bg-glow"></div>
+    </div>
+
+    <span class="gira-hero__year" aria-hidden="true">2026</span>
+
+    <div class="container gira-hero__content">
+      <a href="index.html" class="gira-hero__back">← Volver al sitio</a>
+
+      <div class="gira-hero__eyebrow">
+        <span class="gira-hero__tag">Gira Chile 2026</span>
+        <span class="gira-hero__sep-dot" aria-hidden="true"></span>
+        <span class="gira-hero__banda">Légamo</span>
+      </div>
+
+      <h1 class="gira-hero__title">CÍRCULO<br>DE FUEGO</h1>
+
+      <p class="gira-hero__subtitle">Chile — 2026</p>
+
+      <div class="gira-hero__actions">
+        <a href="#fechas"   class="btn btn--accent">Ver fechas ↓</a>
+        <a href="#afiches"  class="btn btn--outline">Afiches</a>
+        <a href="index.html#contacto" class="btn btn--ghost">Contacto</a>
+      </div>
+    </div>
+
+    <div class="gira-hero__line" aria-hidden="true"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FECHAS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="fechas" class="gira-fechas">
+    <div class="container">
+
+      <div class="gira-fechas__header reveal">
+        <span class="gira-section-label">Agenda</span>
+        <h2 class="gira-section-title">FECHAS</h2>
+        <div class="gira-divider"></div>
+      </div>
+
+      <!-- ── Lista de fechas ──────────────────────────────────
+           Para actualizar una fecha:
+           · fecha-card__dia   → número del día (ej: 15)
+           · fecha-card__mesano → mes y año (ej: MAR 2026)
+           · fecha-card__ciudad → nombre de la ciudad
+           · fecha-card__venue  → nombre del recinto
+           · fecha-card__btn   → cambiar clase y href:
+               --tickets  + href al link de entradas
+               --pronto   para "próximamente" (sin href)
+               --agotado  para función agotada (sin href)
+      ─────────────────────────────────────────────────────── -->
+      <div class="fechas-list reveal d1">
+
+        <!-- Fecha 1 — Actualizar con datos reales -->
+        <div class="fecha-card">
+          <div class="fecha-card__date">
+            <span class="fecha-card__dia">—</span>
+            <span class="fecha-card__mesano">2026</span>
+          </div>
+          <div class="fecha-card__info">
+            <p class="fecha-card__ciudad">Santiago</p>
+            <p class="fecha-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="fecha-card__action">
+            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+          </div>
+        </div>
+
+        <!-- Fecha 2 -->
+        <div class="fecha-card">
+          <div class="fecha-card__date">
+            <span class="fecha-card__dia">—</span>
+            <span class="fecha-card__mesano">2026</span>
+          </div>
+          <div class="fecha-card__info">
+            <p class="fecha-card__ciudad">Valparaíso</p>
+            <p class="fecha-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="fecha-card__action">
+            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+          </div>
+        </div>
+
+        <!-- Fecha 3 -->
+        <div class="fecha-card">
+          <div class="fecha-card__date">
+            <span class="fecha-card__dia">—</span>
+            <span class="fecha-card__mesano">2026</span>
+          </div>
+          <div class="fecha-card__info">
+            <p class="fecha-card__ciudad">Concepción</p>
+            <p class="fecha-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="fecha-card__action">
+            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+          </div>
+        </div>
+
+        <!-- Fecha 4 -->
+        <div class="fecha-card">
+          <div class="fecha-card__date">
+            <span class="fecha-card__dia">—</span>
+            <span class="fecha-card__mesano">2026</span>
+          </div>
+          <div class="fecha-card__info">
+            <p class="fecha-card__ciudad">Temuco</p>
+            <p class="fecha-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="fecha-card__action">
+            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+          </div>
+        </div>
+
+        <!-- Fecha 5 -->
+        <div class="fecha-card">
+          <div class="fecha-card__date">
+            <span class="fecha-card__dia">—</span>
+            <span class="fecha-card__mesano">2026</span>
+          </div>
+          <div class="fecha-card__info">
+            <p class="fecha-card__ciudad">Puerto Montt</p>
+            <p class="fecha-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="fecha-card__action">
+            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+          </div>
+        </div>
+
+      </div><!-- /fechas-list -->
+
+      <!-- Nota de entradas -->
+      <p class="reveal d2" style="margin-top:32px;font-size:13px;color:var(--muted);letter-spacing:.5px;line-height:1.7;">
+        Las entradas estarán disponibles próximamente en los canales oficiales.<br>
+        Para consultas de producción: <a href="produccion.html" style="color:var(--accent);">área de producción</a> ·
+        <a href="mailto:legamo@proyectoenjambre.cl" style="color:var(--accent);">legamo@proyectoenjambre.cl</a>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       AFICHES
+  ══════════════════════════════════════════════════════════ -->
+  <section id="afiches" class="gira-afiches">
+    <div class="container">
+
+      <div class="reveal" style="margin-bottom:48px;">
+        <span class="gira-section-label">Material descargable</span>
+        <h2 class="gira-section-title">AFICHES</h2>
+        <div class="gira-divider"></div>
+      </div>
+
+      <!-- ── Afiches grid ─────────────────────────────────────
+           Para agregar afiches reales:
+           1. Agregar imágenes a assets/gira/ (ej: afiche-santiago.jpg)
+           2. Dentro de .afiche-item, reemplazar div.ph por:
+              <img src="assets/gira/afiche-X.jpg" alt="Afiche — Ciudad">
+           3. En .afiche-overlay, descomentar el enlace de descarga
+      ─────────────────────────────────────────────────────── -->
+      <div class="afiches-grid">
+
+        <!-- Afiche 1 -->
+        <div class="afiche-item reveal d1">
+          <!-- 🎨 PLACEHOLDER: reemplazar por <img src="assets/gira/afiche-santiago.jpg" alt="Afiche Santiago"> -->
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Santiago</div>
+          <div class="afiche-overlay">
+            <!-- Activar con imagen real:
+            <a href="assets/gira/afiche-santiago.jpg" download="Afiche-Legamo-Santiago-2026.jpg"
+               class="btn btn--accent" style="font-size:11px;padding:9px 20px;">↓ Descargar</a> -->
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
+          </div>
+          <div class="afiche-info">
+            <p class="afiche-ciudad">Santiago</p>
+            <p class="afiche-fecha">Fecha por confirmar</p>
+          </div>
+        </div>
+
+        <!-- Afiche 2 -->
+        <div class="afiche-item reveal d2">
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Valparaíso</div>
+          <div class="afiche-overlay">
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
+          </div>
+          <div class="afiche-info">
+            <p class="afiche-ciudad">Valparaíso</p>
+            <p class="afiche-fecha">Fecha por confirmar</p>
+          </div>
+        </div>
+
+        <!-- Afiche 3 -->
+        <div class="afiche-item reveal d3">
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Concepción</div>
+          <div class="afiche-overlay">
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
+          </div>
+          <div class="afiche-info">
+            <p class="afiche-ciudad">Concepción</p>
+            <p class="afiche-fecha">Fecha por confirmar</p>
+          </div>
+        </div>
+
+        <!-- Afiche 4 -->
+        <div class="afiche-item reveal d1">
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Temuco</div>
+          <div class="afiche-overlay">
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
+          </div>
+          <div class="afiche-info">
+            <p class="afiche-ciudad">Temuco</p>
+            <p class="afiche-fecha">Fecha por confirmar</p>
+          </div>
+        </div>
+
+        <!-- Afiche 5 -->
+        <div class="afiche-item reveal d2">
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Puerto Montt</div>
+          <div class="afiche-overlay">
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
+          </div>
+          <div class="afiche-info">
+            <p class="afiche-ciudad">Puerto Montt</p>
+            <p class="afiche-fecha">Fecha por confirmar</p>
+          </div>
+        </div>
+
+        <!-- Afiche general de gira -->
+        <div class="afiche-item reveal d3">
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Gira completa</div>
+          <div class="afiche-overlay">
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
+          </div>
+          <div class="afiche-info">
+            <p class="afiche-ciudad">Gira completa</p>
+            <p class="afiche-fecha">Círculo de Fuego 2026</p>
+          </div>
+        </div>
+
+      </div><!-- /afiches-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       CTA FINAL
+  ══════════════════════════════════════════════════════════ -->
+  <section class="gira-cta">
+    <div class="gira-cta__bg" aria-hidden="true"></div>
+    <div class="container">
+      <p class="gira-section-label reveal">Légamo — 2026</p>
+      <h2 class="gira-cta__title reveal d1">¿QUIERES<br>PRODUCIR LA GIRA?</h2>
+      <p class="gira-cta__sub reveal d2">
+        Toda la documentación técnica disponible en el área de producción.
+      </p>
+      <div class="gira-cta__actions reveal d3">
+        <a href="produccion.html" class="btn btn--accent">Área de producción →</a>
+        <a href="index.html"      class="btn btn--outline">← Volver al sitio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/logo.png" alt="Légamo" class="site-footer__logo">
+      <p class="site-footer__copy">© 2026 Légamo — Valparaíso, Chile</p>
+      <a href="index.html" class="site-footer__link">← Volver al sitio</a>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════════ -->
+  <script src="js/nav.js"></script>
+  <script src="js/scroll-reveal.js"></script>
+
+</body>
+</html>

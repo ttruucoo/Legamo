@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"assets/galeria/7.JPG\" \"assets/galeria/7.jpg\")",
+      "Bash(mv \"assets/galeria/banda-prensa.JPG\" \"assets/galeria/banda-prensa.jpg\")"
+    ]
+  }
+}

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Légamo — Información técnica y press kit para productores. Dossier, ficha técnica, planta de escenario y material de prensa.">
+  <title>Producción | Légamo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/produccion.css">
+</head>
+
+<body class="prod-body">
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVEGACIÓN STICKY (compartida)
+  ══════════════════════════════════════════════════════════ -->
+  <header class="site-nav scrolled" id="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" style="opacity:1;pointer-events:all;transform:none;">
+      <img src="assets/logo.png" alt="Légamo — Volver al inicio">
+    </a>
+
+    <nav class="site-nav__links" role="navigation" aria-label="Navegación principal"
+         style="opacity:1 !important;">
+      <a href="index.html#bio"          style="opacity:1;transform:none;">Sobre Légamo</a>
+      <a href="index.html#discografia"  style="opacity:1;transform:none;">Discografía</a>
+      <a href="index.html#galeria"      style="opacity:1;transform:none;">Galería</a>
+      <a href="index.html#shows"        style="opacity:1;transform:none;">Shows</a>
+      <a href="index.html#contacto"     style="opacity:1;transform:none;">Contacto</a>
+      <a href="produccion.html"         style="opacity:1;transform:none;" class="nav-cta">Producción</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <a href="index.html#bio">Sobre Légamo</a>
+    <a href="index.html#discografia">Discografía</a>
+    <a href="index.html#galeria">Galería</a>
+    <a href="index.html#shows">Shows</a>
+    <a href="index.html#contacto">Contacto</a>
+    <a href="produccion.html" class="mm-cta">Producción</a>
+    <div class="mobile-menu__social">
+      <a href="https://www.youtube.com/@legamo3147" target="_blank" rel="noopener">
+        <img src="assets/icons/youtube.svg" alt="YouTube">
+      </a>
+      <a href="https://www.instagram.com/legamo_/" target="_blank" rel="noopener">
+        <img src="assets/icons/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ" target="_blank" rel="noopener">
+        <img src="assets/icons/spotifynegro.svg" alt="Spotify">
+      </a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
+  <section class="prod-hero">
+    <div class="prod-hero__grid" aria-hidden="true"></div>
+    <div class="container">
+      <a href="index.html" class="prod-hero__back">← Volver al sitio</a>
+
+      <span class="prod-hero__label">Légamo — Para Productores y Técnicos</span>
+      <h1 class="prod-hero__title">ÁREA DE<br>PRODUCCIÓN</h1>
+
+      <p class="prod-hero__desc">
+        Aquí encontrarás toda la documentación técnica y material de prensa
+        necesario para la contratación y cobertura de Légamo. Todo disponible
+        para visualizar y descargar.
+      </p>
+
+      <p class="prod-hero__contacto">
+        Consultas: <a href="mailto:legamo@proyectoenjambre.cl">legamo@proyectoenjambre.cl</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAV INTERNA STICKY
+  ══════════════════════════════════════════════════════════ -->
+  <nav class="prod-subnav" aria-label="Secciones de producción">
+    <div class="prod-subnav__inner">
+      <a href="#dossier"   class="prod-subnav__link active" data-section="dossier">
+        <svg class="prod-subnav__icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/>
+        </svg>
+        Dossier
+      </a>
+      <a href="#rider"     class="prod-subnav__link" data-section="rider">
+        <svg class="prod-subnav__icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+        </svg>
+        Ficha Técnica
+      </a>
+      <a href="#escenario" class="prod-subnav__link" data-section="escenario">
+        <svg class="prod-subnav__icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 0 0-6 0zm-4-4 2 2a7.074 7.074 0 0 1 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+        </svg>
+        Planta de Escenario
+      </a>
+      <a href="#presskit"  class="prod-subnav__link" data-section="presskit">
+        <svg class="prod-subnav__icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 2.75c1.24 0 2.25 1.01 2.25 2.25S13.24 11.25 12 11.25 9.75 10.24 9.75 9 10.76 6.75 12 6.75zM17 17H7v-.75c0-1.99 3.34-3 5-3s5 1.01 5 3V17z"/>
+        </svg>
+        Press Kit
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════
+       CONTENIDO
+  ══════════════════════════════════════════════════════════ -->
+  <main class="prod-content">
+
+    <!-- ────────────────────────────────────────────────────────
+         DOSSIER
+    ──────────────────────────────────────────────────────── -->
+    <section id="dossier" class="prod-section reveal">
+      <div class="prod-section__header">
+        <span class="prod-section__num">01</span>
+        <h2 class="prod-section__title">DOSSIER</h2>
+        <p class="prod-section__desc">
+          Documento completo de presentación de la banda: historia, discografía,
+          trayectoria e información de contacto.
+        </p>
+      </div>
+
+      <div class="pdf-block">
+        <div class="pdf-block__viewer">
+          <iframe
+            src="assets/legamo dossier 2026.pdf"
+            title="Dossier Légamo 2026"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="pdf-block__footer">
+          <span class="pdf-block__name">Dossier Légamo 2026.pdf</span>
+          <div class="pdf-block__actions">
+            <a href="assets/legamo dossier 2026.pdf"
+               download="Dossier-Legamo-2026.pdf"
+               class="btn btn--accent">
+              ↓ Descargar dossier
+            </a>
+            <a href="assets/legamo dossier 2026.pdf"
+               target="_blank" rel="noopener"
+               class="btn btn--outline">
+              Abrir en nueva pestaña
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────────────
+         FICHA TÉCNICA / RIDER
+    ──────────────────────────────────────────────────────── -->
+    <section id="rider" class="prod-section reveal">
+      <div class="prod-section__header">
+        <span class="prod-section__num">02</span>
+        <h2 class="prod-section__title">FICHA TÉCNICA</h2>
+        <p class="prod-section__desc">
+          Input list, requerimientos técnicos de sonido, backline e iluminación
+          para la producción del show.
+        </p>
+      </div>
+
+      <div class="pdf-block">
+        <div class="pdf-block__viewer">
+          <iframe
+            src="assets/fichatecnica.pdf"
+            title="Ficha técnica Légamo"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="pdf-block__footer">
+          <span class="pdf-block__name">Ficha técnica Légamo.pdf</span>
+          <div class="pdf-block__actions">
+            <a href="assets/fichatecnica.pdf"
+               download="Ficha-Tecnica-Legamo.pdf"
+               class="btn btn--accent">
+              ↓ Descargar ficha técnica
+            </a>
+            <a href="assets/fichatecnica.pdf"
+               target="_blank" rel="noopener"
+               class="btn btn--outline">
+              Abrir en nueva pestaña
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────────────
+         PLANTA DE ESCENARIO
+    ──────────────────────────────────────────────────────── -->
+    <section id="escenario" class="prod-section reveal">
+      <div class="prod-section__header">
+        <span class="prod-section__num">03</span>
+        <h2 class="prod-section__title">PLANTA DE<br>ESCENARIO</h2>
+        <p class="prod-section__desc">
+          Diagrama de distribución en escena: posiciones de músicos,
+          instrumentos y requerimientos de espacio.
+        </p>
+      </div>
+
+      <div class="pdf-block">
+        <div class="pdf-block__viewer">
+          <iframe
+            src="assets/escenario.pdf"
+            title="Planta de escenario Légamo"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="pdf-block__footer">
+          <span class="pdf-block__name">Planta de escenario.pdf</span>
+          <div class="pdf-block__actions">
+            <a href="assets/escenario.pdf"
+               download="Planta-Escenario-Legamo.pdf"
+               class="btn btn--accent">
+              ↓ Descargar planta
+            </a>
+            <a href="assets/escenario.pdf"
+               target="_blank" rel="noopener"
+               class="btn btn--outline">
+              Abrir en nueva pestaña
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────────────
+         PRESS KIT
+    ──────────────────────────────────────────────────────── -->
+    <section id="presskit" class="prod-section reveal">
+      <div class="prod-section__header">
+        <span class="prod-section__num">04</span>
+        <h2 class="prod-section__title">PRESS KIT</h2>
+        <p class="prod-section__desc">
+          Material oficial para cobertura periodística, difusión y prensa.
+          Descarga libremente para uso editorial.
+        </p>
+      </div>
+
+      <!-- Bio oficial -->
+      <div class="pk-block reveal d1">
+        <span class="pk-block__title">Biografía oficial</span>
+        <div class="pk-bio" id="pk-bio-text">
+          <p>
+            Légamo nace en 2016 en el histórico Barrio Puerto de Valparaíso, impulsado por una
+            necesidad de expresión visceral que cruza los límites del punk, el free jazz, el hip hop
+            y la música experimental. Desde sus inicios como dúo —con bajo, batería y voces—,
+            el proyecto encarnó una búsqueda sonora ligada al territorio y al cuerpo, con letras
+            intensas, cargadas de crítica, memoria y poesía directa.
+          </p>
+          <p>
+            Con el paso del tiempo, la formación fue creciendo e integrando nuevos instrumentos:
+            saxofón, guitarras, sintetizadores y teclados, ampliando las posibilidades expresivas
+            del grupo sin abandonar su carácter crudo y orgánico. Esta evolución se refleja en su
+            discografía, una línea de tiempo que da cuenta de una identidad coherente y a la vez
+            en constante transformación.
+          </p>
+          <p>
+            Su trayectoria incluye siete trabajos discográficos: <em>En la Trampa</em> (2017),
+            <em>Légamo</em> (2019), <em>Pûrga</em> (2020), <em>…Y si escucho mis voces</em> (Demo, 2020),
+            <em>De nuestras entrañas nacerán flores</em> (Sencillo, 2020), <em>Coraje</em> (2021)
+            y el más reciente <em>Círculo de Fuego</em> (2025).
+          </p>
+          <p>
+            La banda ha mantenido una presencia activa en las escenas de Valparaíso y Santiago,
+            con una fuerte vocación por la autogestión. Han realizado giras por el sur de Chile,
+            Buenos Aires y Lima —esta última con apoyo del Fondo de la Música (2024)—, y en 2026
+            emprenden la Gira Chile «Círculo de Fuego».
+          </p>
+        </div>
+        <button class="pk-bio__copy-btn" id="btn-copiar-bio" aria-label="Copiar biografía al portapapeles">
+          Copiar texto
+        </button>
+      </div>
+
+      <!-- Fotos de prensa -->
+      <div class="pk-block reveal d2">
+        <span class="pk-block__title">Fotos de prensa</span>
+        <div class="pk-fotos-grid">
+
+          <!-- 📷 PLACEHOLDER: reemplazar div.ph por <img src="assets/prensa/foto-1.jpg" alt="...">
+               Formato recomendado: JPG, mínimo 2000px ancho, proporción 3:2 -->
+          <div class="pk-foto-item">
+            <div class="ph" style="aspect-ratio:3/2;width:100%">Foto Prensa 1</div>
+            <div class="pk-foto-overlay">
+              <!-- Activar cuando haya imagen real:
+              <a href="assets/prensa/foto-1.jpg" download class="btn btn--accent" style="font-size:11px;padding:8px 16px;">↓ Descargar</a> -->
+              <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;">Próximamente</span>
+            </div>
+          </div>
+
+          <div class="pk-foto-item">
+            <div class="ph" style="aspect-ratio:3/2;width:100%">Foto Prensa 2</div>
+            <div class="pk-foto-overlay">
+              <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;">Próximamente</span>
+            </div>
+          </div>
+
+          <div class="pk-foto-item">
+            <div class="ph" style="aspect-ratio:3/2;width:100%">Foto Prensa 3</div>
+            <div class="pk-foto-overlay">
+              <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;">Próximamente</span>
+            </div>
+          </div>
+
+          <div class="pk-foto-item">
+            <div class="ph" style="aspect-ratio:3/2;width:100%">Foto Prensa 4</div>
+            <div class="pk-foto-overlay">
+              <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;">Próximamente</span>
+            </div>
+          </div>
+
+          <div class="pk-foto-item">
+            <div class="ph" style="aspect-ratio:3/2;width:100%">Foto Prensa 5</div>
+            <div class="pk-foto-overlay">
+              <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;">Próximamente</span>
+            </div>
+          </div>
+
+          <div class="pk-foto-item">
+            <div class="ph" style="aspect-ratio:3/2;width:100%">Foto Prensa 6</div>
+            <div class="pk-foto-overlay">
+              <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;">Próximamente</span>
+            </div>
+          </div>
+
+        </div>
+        <!-- Activar cuando haya fotos reales:
+        <div style="margin-top:20px;">
+          <a href="assets/prensa/legamo-fotos-prensa.zip" download class="btn btn--ghost">↓ Descargar todas (ZIP)</a>
+        </div> -->
+      </div>
+
+      <!-- Logos descargables -->
+      <div class="pk-block reveal d3">
+        <span class="pk-block__title">Logos</span>
+        <div class="pk-logos-grid">
+
+          <div class="pk-logo-item">
+            <img src="assets/logo.png" alt="Logo Légamo — versión blanca">
+            <span class="pk-logo-item__label">Logo blanco — PNG</span>
+            <a href="assets/logo.png" download="Logo-Legamo.png" class="btn btn--outline" style="font-size:11px;padding:8px 18px;">↓ Descargar</a>
+          </div>
+
+          <!-- Agregar más versiones del logo cuando estén disponibles:
+          <div class="pk-logo-item">
+            <img src="assets/logo-negro.png" alt="Logo Légamo negro">
+            <span class="pk-logo-item__label">Logo negro — PNG</span>
+            <a href="assets/logo-negro.png" download class="btn btn--outline" ...>↓ Descargar</a>
+          </div>
+          <div class="pk-logo-item">
+            <img src="assets/logo.svg" alt="Logo Légamo SVG">
+            <span class="pk-logo-item__label">Logo vectorial — SVG</span>
+            <a href="assets/logo.svg" download class="btn btn--outline" ...>↓ Descargar</a>
+          </div> -->
+
+        </div>
+      </div>
+
+      <!-- Plataformas y redes -->
+      <div class="pk-block reveal d4">
+        <span class="pk-block__title">Plataformas y redes</span>
+        <div class="pk-plataformas">
+
+          <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ"
+             target="_blank" rel="noopener" class="pk-plataforma">
+            <img src="assets/icons/spotifynegro.svg" alt="Spotify">
+            <div class="pk-plataforma__info">
+              <p class="pk-plataforma__name">Spotify</p>
+              <p class="pk-plataforma__handle">open.spotify.com/artist/Légamo</p>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/@legamo3147"
+             target="_blank" rel="noopener" class="pk-plataforma">
+            <img src="assets/icons/youtube.svg" alt="YouTube">
+            <div class="pk-plataforma__info">
+              <p class="pk-plataforma__name">YouTube</p>
+              <p class="pk-plataforma__handle">@legamo3147</p>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/legamo_/"
+             target="_blank" rel="noopener" class="pk-plataforma">
+            <img src="assets/icons/instagram.svg" alt="Instagram">
+            <div class="pk-plataforma__info">
+              <p class="pk-plataforma__name">Instagram</p>
+              <p class="pk-plataforma__handle">@legamo_</p>
+            </div>
+          </a>
+
+          <a href="mailto:legamo@proyectoenjambre.cl" class="pk-plataforma">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7;flex-shrink:0;">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <div class="pk-plataforma__info">
+              <p class="pk-plataforma__name">Correo</p>
+              <p class="pk-plataforma__handle">legamo@proyectoenjambre.cl</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+    </section><!-- /presskit -->
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/logo.png" alt="Légamo" class="site-footer__logo">
+      <p class="site-footer__copy">© 2026 Légamo — Valparaíso, Chile</p>
+      <a href="index.html" class="site-footer__link">← Volver al sitio</a>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════════ -->
+  <script src="js/nav.js"></script>
+  <script src="js/scroll-reveal.js"></script>
+
+  <!-- Nav interna: highlight de sección activa -->
+  <script>
+    (function () {
+      var secciones  = ['dossier', 'rider', 'escenario', 'presskit'];
+      var links      = document.querySelectorAll('.prod-subnav__link');
+      var navH       = document.querySelector('.site-nav').offsetHeight;
+      var subnavH    = document.querySelector('.prod-subnav').offsetHeight;
+      var offset     = navH + subnavH + 40;
+
+      function actualizar() {
+        var scrollY = window.scrollY + offset;
+        var actual  = secciones[0];
+
+        secciones.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollY) actual = id;
+        });
+
+        links.forEach(function (link) {
+          link.classList.toggle('active', link.dataset.section === actual);
+        });
+      }
+
+      window.addEventListener('scroll', actualizar, { passive: true });
+      actualizar();
+
+      // Smooth scroll al hacer click en subnav
+      links.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.getElementById(link.dataset.section);
+          if (!target) return;
+          var top = target.getBoundingClientRect().top + window.scrollY - offset + 40;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+
+  <!-- Copiar bio al portapapeles -->
+  <script>
+    (function () {
+      var btn = document.getElementById('btn-copiar-bio');
+      if (!btn) return;
+
+      btn.addEventListener('click', function () {
+        var bioEl = document.getElementById('pk-bio-text');
+        var texto = bioEl ? bioEl.innerText.trim() : '';
+
+        if (!navigator.clipboard) {
+          // Fallback para navegadores sin clipboard API
+          var ta = document.createElement('textarea');
+          ta.value = texto;
+          ta.style.position = 'fixed';
+          ta.style.opacity  = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.textContent = '¡Copiado!';
+          btn.classList.add('copied');
+          setTimeout(function () { btn.textContent = 'Copiar texto'; btn.classList.remove('copied'); }, 2000);
+          return;
+        }
+
+        navigator.clipboard.writeText(texto).then(function () {
+          btn.textContent = '¡Copiado!';
+          btn.classList.add('copied');
+          setTimeout(function () { btn.textContent = 'Copiar texto'; btn.classList.remove('copied'); }, 2000);
+        }).catch(function () {
+          btn.textContent = 'Error al copiar';
+          setTimeout(function () { btn.textContent = 'Copiar texto'; }, 2000);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
