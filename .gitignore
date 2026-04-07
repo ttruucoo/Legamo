@@ -20,3 +20,4 @@ estructura_archivos.txt
 .vscode/
 *.suo
 *.user
+.claude/
