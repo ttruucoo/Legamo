@@ -105,90 +105,139 @@
       </div>
 
       <!-- ── Lista de fechas ──────────────────────────────────
-           Para actualizar una fecha:
-           · fecha-card__dia   → número del día (ej: 15)
-           · fecha-card__mesano → mes y año (ej: MAR 2026)
-           · fecha-card__ciudad → nombre de la ciudad
-           · fecha-card__venue  → nombre del recinto
-           · fecha-card__btn   → cambiar clase y href:
-               --tickets  + href al link de entradas
-               --pronto   para "próximamente" (sin href)
-               --agotado  para función agotada (sin href)
+           CÓMO AGREGAR LINK DE ENTRADAS cuando estén disponibles:
+           1. Cambiar <span class="fecha-card__btn fecha-card__btn--pronto">
+              por: <a href="URL_DEL_LINK" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a>
+           2. Reemplazar URL_DEL_LINK con el link real (Passline, Ticketek, Puntoticket, etc.)
+           3. Si una función se agota: cambiar --tickets por --agotado y quitar el href
       ─────────────────────────────────────────────────────── -->
       <div class="fechas-list reveal d1">
 
-        <!-- Fecha 1 — Actualizar con datos reales -->
+        <!-- Fecha 1 — La Serena -->
         <div class="fecha-card">
           <div class="fecha-card__date">
-            <span class="fecha-card__dia">—</span>
-            <span class="fecha-card__mesano">2026</span>
+            <span class="fecha-card__dia">25</span>
+            <span class="fecha-card__mesano">ABR 2026</span>
+          </div>
+          <div class="fecha-card__info">
+            <p class="fecha-card__ciudad">La Serena</p>
+            <p class="fecha-card__venue">Calaca Bar</p>
+          </div>
+          <div class="fecha-card__action">
+            <!-- Reemplazar por: <a href="URL_ENTRADAS" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a> -->
+            <span class="fecha-card__btn fecha-card__btn--pronto">Entradas pronto</span>
+          </div>
+        </div>
+
+        <!-- Fecha 2 — Santiago -->
+        <div class="fecha-card">
+          <div class="fecha-card__date">
+            <span class="fecha-card__dia">02</span>
+            <span class="fecha-card__mesano">MAY 2026</span>
           </div>
           <div class="fecha-card__info">
             <p class="fecha-card__ciudad">Santiago</p>
-            <p class="fecha-card__venue">Venue por confirmar</p>
+            <p class="fecha-card__venue">Thelonius Bar de Jazz</p>
           </div>
           <div class="fecha-card__action">
-            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+            <!-- Reemplazar por: <a href="URL_ENTRADAS" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a> -->
+            <span class="fecha-card__btn fecha-card__btn--pronto">Entradas pronto</span>
           </div>
         </div>
 
-        <!-- Fecha 2 -->
+        <!-- Fecha 3 — Rengo -->
         <div class="fecha-card">
           <div class="fecha-card__date">
-            <span class="fecha-card__dia">—</span>
-            <span class="fecha-card__mesano">2026</span>
+            <span class="fecha-card__dia">09</span>
+            <span class="fecha-card__mesano">MAY 2026</span>
           </div>
           <div class="fecha-card__info">
-            <p class="fecha-card__ciudad">Valparaíso</p>
-            <p class="fecha-card__venue">Venue por confirmar</p>
+            <p class="fecha-card__ciudad">Rengo</p>
+            <p class="fecha-card__venue">Aldea 31</p>
           </div>
           <div class="fecha-card__action">
-            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+            <!-- Reemplazar por: <a href="URL_ENTRADAS" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a> -->
+            <span class="fecha-card__btn fecha-card__btn--pronto">Entradas pronto</span>
           </div>
         </div>
 
-        <!-- Fecha 3 -->
+        <!-- Fecha 4 — Valdivia -->
         <div class="fecha-card">
           <div class="fecha-card__date">
-            <span class="fecha-card__dia">—</span>
-            <span class="fecha-card__mesano">2026</span>
+            <span class="fecha-card__dia">21</span>
+            <span class="fecha-card__mesano">MAY 2026</span>
+          </div>
+          <div class="fecha-card__info">
+            <p class="fecha-card__ciudad">Valdivia</p>
+            <p class="fecha-card__venue">Ex Fábrika Barrios Bajos</p>
+          </div>
+          <div class="fecha-card__action">
+            <!-- Reemplazar por: <a href="URL_ENTRADAS" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a> -->
+            <span class="fecha-card__btn fecha-card__btn--pronto">Entradas pronto</span>
+          </div>
+        </div>
+
+        <!-- Fecha 5 — Concepción (venue por confirmar) -->
+        <div class="fecha-card">
+          <div class="fecha-card__date">
+            <span class="fecha-card__dia">22</span>
+            <span class="fecha-card__mesano">MAY 2026</span>
           </div>
           <div class="fecha-card__info">
             <p class="fecha-card__ciudad">Concepción</p>
             <p class="fecha-card__venue">Venue por confirmar</p>
           </div>
           <div class="fecha-card__action">
-            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+            <!-- Reemplazar por: <a href="URL_ENTRADAS" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a> -->
+            <span class="fecha-card__btn fecha-card__btn--pronto">Entradas pronto</span>
           </div>
         </div>
 
-        <!-- Fecha 4 -->
+        <!-- Fecha 6 — Concepción Kamehouse -->
         <div class="fecha-card">
           <div class="fecha-card__date">
-            <span class="fecha-card__dia">—</span>
-            <span class="fecha-card__mesano">2026</span>
+            <span class="fecha-card__dia">23</span>
+            <span class="fecha-card__mesano">MAY 2026</span>
           </div>
           <div class="fecha-card__info">
-            <p class="fecha-card__ciudad">Temuco</p>
-            <p class="fecha-card__venue">Venue por confirmar</p>
+            <p class="fecha-card__ciudad">Concepción</p>
+            <p class="fecha-card__venue">Kamehouse</p>
           </div>
           <div class="fecha-card__action">
-            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+            <!-- Reemplazar por: <a href="URL_ENTRADAS" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a> -->
+            <span class="fecha-card__btn fecha-card__btn--pronto">Entradas pronto</span>
           </div>
         </div>
 
-        <!-- Fecha 5 -->
+        <!-- Fecha 7 — Iquique (venue por confirmar) -->
         <div class="fecha-card">
           <div class="fecha-card__date">
-            <span class="fecha-card__dia">—</span>
-            <span class="fecha-card__mesano">2026</span>
+            <span class="fecha-card__dia">05</span>
+            <span class="fecha-card__mesano">JUN 2026</span>
           </div>
           <div class="fecha-card__info">
-            <p class="fecha-card__ciudad">Puerto Montt</p>
+            <p class="fecha-card__ciudad">Iquique</p>
             <p class="fecha-card__venue">Venue por confirmar</p>
           </div>
           <div class="fecha-card__action">
-            <span class="fecha-card__btn fecha-card__btn--pronto">Próximamente</span>
+            <!-- Reemplazar por: <a href="URL_ENTRADAS" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a> -->
+            <span class="fecha-card__btn fecha-card__btn--pronto">Entradas pronto</span>
+          </div>
+        </div>
+
+        <!-- Fecha 8 — Antofagasta (venue por confirmar) -->
+        <div class="fecha-card">
+          <div class="fecha-card__date">
+            <span class="fecha-card__dia">06</span>
+            <span class="fecha-card__mesano">JUN 2026</span>
+          </div>
+          <div class="fecha-card__info">
+            <p class="fecha-card__ciudad">Antofagasta</p>
+            <p class="fecha-card__venue">Venue por confirmar</p>
+          </div>
+          <div class="fecha-card__action">
+            <!-- Reemplazar por: <a href="URL_ENTRADAS" target="_blank" class="fecha-card__btn fecha-card__btn--tickets">Entradas</a> -->
+            <span class="fecha-card__btn fecha-card__btn--pronto">Entradas pronto</span>
           </div>
         </div>
 
@@ -225,79 +274,88 @@
       ─────────────────────────────────────────────────────── -->
       <div class="afiches-grid">
 
-        <!-- Afiche 1 -->
+        <!-- ── AFICHES ───────────────────────────────────────────
+             CÓMO AGREGAR AFICHES cuando estén listos:
+             1. Guardar imagen en assets/gira/ (ej: afiche-la-serena.jpg)
+             2. Reemplazar el div.ph por: <img src="assets/gira/afiche-X.jpg" alt="Afiche — Ciudad">
+             3. En .afiche-overlay descomentar el enlace de descarga y eliminar el <span>
+        ──────────────────────────────────────────────────────── -->
+
+        <!-- Afiche 1 — La Serena -->
         <div class="afiche-item reveal d1">
-          <!-- 🎨 PLACEHOLDER: reemplazar por <img src="assets/gira/afiche-santiago.jpg" alt="Afiche Santiago"> -->
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — La Serena</div>
+          <div class="afiche-overlay">
+            <!-- <a href="assets/gira/afiche-la-serena.jpg" download="Afiche-Legamo-LaSerena-2026.jpg" class="btn btn--accent" style="font-size:11px;padding:9px 20px;">↓ Descargar</a> -->
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
+          </div>
+          <div class="afiche-info">
+            <p class="afiche-ciudad">La Serena</p>
+            <p class="afiche-fecha">25 ABR — Calaca Bar</p>
+          </div>
+        </div>
+
+        <!-- Afiche 2 — Santiago -->
+        <div class="afiche-item reveal d2">
           <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Santiago</div>
           <div class="afiche-overlay">
-            <!-- Activar con imagen real:
-            <a href="assets/gira/afiche-santiago.jpg" download="Afiche-Legamo-Santiago-2026.jpg"
-               class="btn btn--accent" style="font-size:11px;padding:9px 20px;">↓ Descargar</a> -->
+            <!-- <a href="assets/gira/afiche-santiago.jpg" download="Afiche-Legamo-Santiago-2026.jpg" class="btn btn--accent" style="font-size:11px;padding:9px 20px;">↓ Descargar</a> -->
             <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
           </div>
           <div class="afiche-info">
             <p class="afiche-ciudad">Santiago</p>
-            <p class="afiche-fecha">Fecha por confirmar</p>
+            <p class="afiche-fecha">02 MAY — Thelonius Bar</p>
           </div>
         </div>
 
-        <!-- Afiche 2 -->
-        <div class="afiche-item reveal d2">
-          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Valparaíso</div>
+        <!-- Afiche 3 — Rengo -->
+        <div class="afiche-item reveal d3">
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Rengo</div>
           <div class="afiche-overlay">
+            <!-- <a href="assets/gira/afiche-rengo.jpg" download="Afiche-Legamo-Rengo-2026.jpg" class="btn btn--accent" style="font-size:11px;padding:9px 20px;">↓ Descargar</a> -->
             <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
           </div>
           <div class="afiche-info">
-            <p class="afiche-ciudad">Valparaíso</p>
-            <p class="afiche-fecha">Fecha por confirmar</p>
+            <p class="afiche-ciudad">Rengo</p>
+            <p class="afiche-fecha">09 MAY — Aldea 31</p>
           </div>
         </div>
 
-        <!-- Afiche 3 -->
-        <div class="afiche-item reveal d3">
+        <!-- Afiche 4 — Valdivia -->
+        <div class="afiche-item reveal d1">
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Valdivia</div>
+          <div class="afiche-overlay">
+            <!-- <a href="assets/gira/afiche-valdivia.jpg" download="Afiche-Legamo-Valdivia-2026.jpg" class="btn btn--accent" style="font-size:11px;padding:9px 20px;">↓ Descargar</a> -->
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
+          </div>
+          <div class="afiche-info">
+            <p class="afiche-ciudad">Valdivia</p>
+            <p class="afiche-fecha">21 MAY — Ex Fábrika Barrios Bajos</p>
+          </div>
+        </div>
+
+        <!-- Afiche 5 — Concepción -->
+        <div class="afiche-item reveal d2">
           <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Concepción</div>
           <div class="afiche-overlay">
+            <!-- <a href="assets/gira/afiche-concepcion.jpg" download="Afiche-Legamo-Concepcion-2026.jpg" class="btn btn--accent" style="font-size:11px;padding:9px 20px;">↓ Descargar</a> -->
             <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
           </div>
           <div class="afiche-info">
             <p class="afiche-ciudad">Concepción</p>
-            <p class="afiche-fecha">Fecha por confirmar</p>
+            <p class="afiche-fecha">22 y 23 MAY</p>
           </div>
         </div>
 
-        <!-- Afiche 4 -->
-        <div class="afiche-item reveal d1">
-          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Temuco</div>
-          <div class="afiche-overlay">
-            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
-          </div>
-          <div class="afiche-info">
-            <p class="afiche-ciudad">Temuco</p>
-            <p class="afiche-fecha">Fecha por confirmar</p>
-          </div>
-        </div>
-
-        <!-- Afiche 5 -->
-        <div class="afiche-item reveal d2">
-          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Puerto Montt</div>
-          <div class="afiche-overlay">
-            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
-          </div>
-          <div class="afiche-info">
-            <p class="afiche-ciudad">Puerto Montt</p>
-            <p class="afiche-fecha">Fecha por confirmar</p>
-          </div>
-        </div>
-
-        <!-- Afiche general de gira -->
+        <!-- Afiche 6 — Norte (Iquique / Antofagasta) -->
         <div class="afiche-item reveal d3">
-          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Gira completa</div>
+          <div class="ph" style="aspect-ratio:2/3;width:100%">Afiche — Norte</div>
           <div class="afiche-overlay">
+            <!-- <a href="assets/gira/afiche-norte.jpg" download="Afiche-Legamo-Norte-2026.jpg" class="btn btn--accent" style="font-size:11px;padding:9px 20px;">↓ Descargar</a> -->
             <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;">Próximamente</span>
           </div>
           <div class="afiche-info">
-            <p class="afiche-ciudad">Gira completa</p>
-            <p class="afiche-fecha">Círculo de Fuego 2026</p>
+            <p class="afiche-ciudad">Iquique / Antofagasta</p>
+            <p class="afiche-fecha">05 y 06 JUN</p>
           </div>
         </div>
 
