@@ -1,197 +1,121 @@
-# Plan de Trabajo — Rediseño Légamo
-**Aprobado:** 2026-04-06  
-**Estado:** En ejecución
+# Plan de Trabajo — Légamo Web
+**Inicio:** 2026-04-06 | **Última actualización:** 2026-04-09
+**Estado:** En producción — desarrollo continuo
 
 ---
 
-## Objetivo
-Rediseñar el sitio web de la banda Légamo con un diseño moderno, editorial y enfocado en el engagement musical y la visibilidad del grupo. El sitio vive en `legamo.proyectoenjambre.cl`.
+## Sitio en producción
+- **URL:** legamo.proyectoenjambre.cl
+- **Repo:** https://github.com/ttruucoo/Legamo (rama master)
+- **Hosting:** proyectoenjambre.cl — servidor con PHP, subdominio legamo
 
 ---
 
-## Estructura de Archivos
+## Estructura de archivos actual
 
 ```
 legamo/
-├── index.html              ← Página principal
-├── produccion.html         ← Para productores/técnicos
-├── gira.html               ← Gira Chile 2026 - Círculo de Fuego
-├── send_email.php          ← Conservado sin cambios
+├── index.html              ✅ Página principal
+├── produccion.html         ✅ Para productores/técnicos
+├── gira.html               ✅ Gira Chile 2026 - Círculo de Fuego
+├── alencuentro.html        ✅ Historia "Al encuentro de sí mismo"
+├── management.html         ✅ Dashboard interno (solo URL directa)
+├── send_email.php          ✅ Formulario de contacto
 │
 ├── css/
-│   ├── main.css            ← Estilos globales + variables
-│   ├── index.css           ← Estilos específicos de inicio
-│   ├── produccion.css      ← Estilos página producción
-│   └── gira.css            ← Estilos página gira
+│   ├── main.css            ✅ Estilos globales + variables
+│   ├── index.css           ✅ Estilos página principal + audio player
+│   ├── produccion.css      ✅ Estilos página producción
+│   ├── gira.css            ✅ Estilos página gira
+│   ├── alencuentro.css     ✅ Estilos página historia
+│   └── management.css      ✅ Estilos dashboard
 │
 ├── js/
-│   ├── nav.js              ← Navegación sticky + hamburger móvil
-│   ├── scroll-reveal.js    ← Animaciones al entrar en viewport (Intersection Observer)
-│   ├── lightbox.js         ← Galería con lightbox fullscreen
-│   └── audio-player.js     ← Player con control manual (múltiples canciones)
+│   ├── nav.js              ✅ Navegación sticky + hamburger móvil
+│   ├── scroll-reveal.js    ✅ Animaciones al entrar en viewport
+│   ├── lightbox.js         ✅ Galería con lightbox fullscreen
+│   └── audio-player.js     ✅ Player con múltiples canciones
+│
+├── api/
+│   ├── stats.php           ✅ Backend APIs (YouTube, Spotify, Instagram) + caché 1h
+│   ├── config.php          ✅ Credenciales API — NO en GitHub (subir manualmente)
+│   └── config.example.php  ✅ Plantilla de credenciales (en GitHub)
 │
 └── assets/
-    ├── logo.png            ✓ existe
-    ├── musica/             ← Canciones alojadas en el sitio
-    │   └── Verano2001.mp3  ✓ existe (+ agregar más canciones aquí)
-    ├── docs/
-    │   ├── dossier-2026.pdf      ✓ existe (renombrar desde "legamo dossier 2026.pdf")
-    │   ├── ficha-tecnica.pdf     ← agregar cuando esté disponible
-    │   └── escenario.pdf        ✓ existe
-    ├── icons/              ✓ existe
-    ├── galeria/            ← placeholders → reemplazar con fotos de alta res
-    ├── discos/             ← placeholders → reemplazar con carátulas de álbumes
-    └── gira/               ← afiches placeholder → reemplazar con afiches oficiales
+    ├── logo.png            ✅
+    ├── musica/             ✅ 5 MP3 (Jaco, De Facto, Walve, Tijereta, Campanas, Verano2001)
+    ├── playlist.json       ✅ 6 canciones declaradas
+    ├── docs/               ✅ dossier-2026.pdf, fichatecnica.pdf, escenario.pdf
+    ├── icons/              ✅ SVG redes sociales
+    ├── galeria/            ✅ 7 fotos (1.jpg–7.jpg + banda-prensa.jpg)
+    ├── discos/             ✅ 7 carátulas de álbumes
+    ├── alencuentro/        ✅ borde.jpg, jacoipse.jpeg, historia.txt, PDF
+    └── gira/               ⏳ afiches placeholder — pendiente afiches oficiales
 ```
 
 ---
 
-## Páginas y Secciones
+## Estado de páginas
 
-### `index.html` — Página Principal
-| # | Sección | Descripción | Estado |
-|---|---|---|---|
-| 1 | **Hero** | Logo flotante, tagline, audio player manual (múltiples canciones), nav fade-in, CTA a Gira 2026 | ✅ Completo |
-| 2 | **Sobre Légamo** | Layout 60/40: texto historia + foto placeholder, línea de tiempo | ✅ Completo |
-| 3 | **Discografía** | Grid álbumes con hover + links Spotify | ✅ Completo |
-| 4 | **Galería** | Grid masonry, lightbox fullscreen al hacer click | ✅ Completo |
-| 5 | **Shows / Gira** | Preview fechas Círculo de Fuego + CTA a `gira.html` | ✅ Completo |
-| 6 | **Contacto** | Form PHP + redes sociales + link a producción | ✅ Completo |
+### `index.html` ✅
+Hero con video, bio, discografía (7 álbumes), galería lightbox, shows, contacto PHP, audio player fijo.
 
-### `produccion.html` — Para Productores y Técnicos
-| # | Sección | Descripción | Estado |
-|---|---|---|---|
-| 1 | **Hero** | Header "Para Productores y Técnicos" | ✅ Completo |
-| 2 | **Nav interna sticky** | Dossier / Rider / Escenario / Press Kit | ✅ Completo |
-| 3 | **Dossier** | Visor PDF + botón descarga (dossier-2026.pdf) | ✅ Completo |
-| 4 | **Ficha Técnica** | Visor PDF + botón descarga (fichatecnica.pdf) | ✅ Completo |
-| 5 | **Planta de Escenario** | Visor PDF + botón descarga (escenario.pdf) | ✅ Completo |
-| 6 | **Press Kit** | Bio oficial, fotos de prensa (placeholders + descarga), logos, links plataformas | ✅ Completo |
+### `produccion.html` ✅
+Dossier, ficha técnica, planta de escenario (visores PDF), press kit con fotos y logos.
 
-### `gira.html` — Gira Chile 2026: Círculo de Fuego
-| # | Sección | Descripción | Estado |
-|---|---|---|---|
-| 1 | **Hero dramático** | Título "Círculo de Fuego", estética de gira, año 2026 | ✅ Completo |
-| 2 | **Fechas** | Cards por fecha: ciudad, venue, fecha, link entradas | ✅ Completo |
-| 3 | **Afiches** | Grid de afiches descargables (placeholders → reemplazar) | ✅ Completo |
-| 4 | **CTA** | Link a inicio + contacto | ✅ Completo |
+### `gira.html` ✅
+8 fechas Círculo de Fuego 2026, grid de afiches, CTA.
+Venues por confirmar: Concepción (22 MAY), Iquique (05 JUN), Antofagasta (06 JUN).
+
+### `alencuentro.html` ✅
+Historia "Al encuentro de sí mismo" — fondo jacoipse.jpeg, bordes borde.jpg, texto dorado #f0c040, audio player integrado.
+
+### `management.html` ✅
+Dashboard interno. Acceso solo por URL directa (no está en el nav).
+- YouTube ✅ — suscriptores, vistas totales, últimos 6 videos
+- Instagram ✅ — seguidores, alcance 7d, impresiones, posts
+- Spotify ⚠️ — requiere Premium en la cuenta developer.spotify.com (pendiente)
+- Google Analytics ✅ — link directo al dashboard GA (ID: G-T94X42T9TQ)
+- Exportar Excel (CSV) ✅
+- Exportar PDF ✅
 
 ---
 
-## Estética y Tecnología
+## APIs y credenciales
 
-### Stack
-- HTML5 + CSS3 puro (custom properties, Grid, Flexbox)
-- Vanilla JS moderno — sin frameworks
-- PHP conservado solo para `send_email.php`
-- Sin dependencias externas excepto Google Fonts
-
-### Tipografía
-- **Títulos de impacto:** Bebas Neue (Google Fonts)
-- **Body y navegación:** Barlow Condensed (Google Fonts, weight 300-600)
-
-### Paleta de Colores
-```css
---color-bg:       #000000
---color-surface:  #0a0a0a
---color-accent:   #a6ff00   /* verde lima — uso estratégico */
---color-accent-2: #caff68   /* hover */
---color-text:     #ffffff
---color-muted:    #888888
---color-border:   #222222
-```
-
-### Efectos Visuales
-- Grain/ruido CSS (pseudo-elemento, sin imagen externa)
-- Intersection Observer para fade-in/slide al scrollear
-- Nav sticky transparente → sólida al scrollear
-- Hamburger en móvil
-- Scroll libre y fluido (sin snap forzado)
-- Glitch leve en hover del logo (CSS animation)
-
----
-
-## Audio Player
-- Múltiples canciones alojadas en `assets/musica/`
-- Player con controles: play/pause, anterior/siguiente, barra de progreso, volumen
-- Las canciones se declaran en un array JS — fácilmente extensible
-- Arquitectura preparada para futura integración en un reproductor multi-banda (opcional, fuera del alcance actual)
-- Para el reproductor multi-banda futuro: cada banda tendrá sus canciones en su propio dominio/subdominio y se expondrán mediante un JSON de playlist estático (`playlist.json`) que un reproductor externo podrá consumir
-
----
-
-## Hosting
-- Alojado en `legamo.proyectoenjambre.cl` (subdominio existente)
-- Servidor con PHP disponible — formulario de contacto funcional
-- Posible migración futura a hosting estático (Netlify/GitHub Pages) con Formspree para el formulario — no urgente
-
----
-
-## Assets Pendientes (reemplazar placeholders)
-- [ ] Fotos de prensa alta resolución → `assets/galeria/`
-- [ ] Carátulas de álbumes → `assets/discos/`
-- [ ] Ficha técnica / rider → `assets/docs/ficha-tecnica.pdf`
-- [ ] Afiches Gira Círculo de Fuego → `assets/gira/`
-- [ ] Canciones adicionales → `assets/musica/`
-
----
-
-## Orden de Ejecución
-1. `css/main.css` — variables globales, reset, tipografía, componentes reutilizables ✅
-2. `index.html` + `css/index.css` — página principal completa ✅
-3. `produccion.html` + `css/produccion.css` — página de producción ✅
-4. `gira.html` + `css/gira.css` — página de gira ✅
-5. `js/nav.js` — navegación sticky + hamburger ✅
-6. `js/scroll-reveal.js` — animaciones de entrada ✅
-7. `js/lightbox.js` — galería con lightbox ✅
-8. `js/audio-player.js` — reproductor con múltiples canciones ✅
-
-## Pendientes
-
-### 🔧 Prioridad alta
-- **Reproductor persistente entre páginas** — al navegar a gira.html o produccion.html la música se detiene.
-  Solución planificada: guardar estado (pista + timestamp) en `sessionStorage` al salir, recuperarlo al cargar el player en la nueva página. Requiere modificar `js/audio-player.js` y agregar el player HTML en `produccion.html` y `gira.html`.
-
-### 🔒 Página management (oculta — solo acceso por URL directa)
-- URL: `legamo.proyectoenjambre.cl/management.html` (sin link desde el sitio)
-- Propósito: dashboard de actividad para uso interno — redes sociales, Spotify, YouTube
-- Ver análisis de viabilidad en sección correspondiente más abajo
-
----
-
-## Análisis: Página Management
-
-### ¿Qué es posible sin backend?
-| Plataforma | Dato público disponible | Método |
+| Servicio | Estado | Notas |
 |---|---|---|
-| Spotify | Seguidores, oyentes mensuales | Spotify Web API (requiere OAuth) |
-| YouTube | Suscriptores, vistas totales | YouTube Data API v3 (requiere API key) |
-| Instagram | No disponible sin app aprobada por Meta | — |
+| YouTube Data API v3 | ✅ | Channel ID: UCKMkjHHpyYCmc8BjUi99i6Q |
+| Spotify Web API | ⚠️ | Requiere Premium — cuenta actual es Free |
+| Instagram Graph API | ✅ | Token expira ~2026-06-08 — renovar en developers.facebook.com |
+| Google Analytics | ✅ | G-T94X42T9TQ — instalado en las 4 páginas |
 
-### Opciones prácticas
+**Renovar token Instagram (~8 junio 2026):**
+1. Ir a developers.facebook.com/tools/explorer
+2. Generar token con: `pages_show_list`, `pages_read_engagement`, `instagram_basic`, `instagram_manage_insights`
+3. Pasar token a Claude → genera token 60 días → actualizar `api/config.php` en servidor
 
-**Opción A — Links centralizados (simple, sin código extra)**
-Una página que agrupa los links directos a los dashboards nativos de cada plataforma:
-- Spotify for Artists
-- YouTube Studio
-- Meta Business Suite (Instagram)
-- Google Analytics (si está instalado)
-Útil como "panel de control" pero sin datos integrados.
+---
 
-**Opción B — Widgets estáticos con actualización manual**
-Una página con tarjetas de métricas que el usuario actualiza manualmente. Sin APIs, sin autenticación. Editar el HTML para actualizar los números.
+## Estética y stack
 
-**Opción C — Integración real con APIs (requiere desarrollo adicional)**
-Requiere un pequeño backend (PHP ya disponible en el servidor) o un servicio tipo Netlify Functions para manejar los tokens OAuth de Spotify y YouTube Data API. Los datos se actualizarían automáticamente cada vez que se carga la página.
-- Spotify Web API: oyentes mensuales, seguidores, popularidad por track
-- YouTube Data API v3: vistas, suscriptores, videos más vistos
-- Tiempo estimado: sesión adicional de trabajo
+- **Stack:** HTML5 + CSS3 puro + Vanilla JS + PHP (solo formulario y API backend)
+- **Tipografía:** Bebas Neue (títulos) + Barlow Condensed (body, 300–600)
+- **Paleta:** `--bg: #000` / `--accent: #a6ff00` / `--text: #fff` / `--muted: #555`
+- **Efectos:** grain CSS, scroll-reveal, nav sticky, lightbox, glitch logo hover
 
-**Recomendación**: arrancar con Opción A+B (rápido, sin dependencias) y evolucionar a Opción C en una iteración siguiente.
+---
 
-### Assets pendientes (sitio principal)
-- [ ] Video de fondo hero → `assets/video/legamo-bg.mp4`
-- [ ] Fotos de prensa para press kit → `assets/prensa/`
-- [ ] Afiches gira → `assets/gira/`
-- [ ] Fechas y links de entradas → editar `gira.html`
-- [ ] Canciones nuevas → agregar a `assets/musica/` + `playlist.json` + fallback en `audio-player.js`
+## Pendientes — contenido
+
+- [ ] Venues por confirmar: Concepción (22 MAY), Iquique (05 JUN), Antofagasta (06 JUN)
+- [ ] Links de entradas para todas las fechas de la gira
+- [ ] Fotos de prensa alta resolución → `assets/prensa/`
+- [ ] Afiches oficiales por ciudad → `assets/gira/`
+- [ ] Canciones adicionales → `assets/musica/` + `playlist.json` + fallback en `audio-player.js`
+
+## Pendientes — desarrollo
+
+- [ ] **Spotify dashboard** — resolver cuando se tenga cuenta Premium en developer.spotify.com
+- [ ] **Reproductor persistente entre páginas** — sessionStorage para conservar pista + timestamp al navegar
+- [ ] **Formulario de contacto** — verificar en producción con tráfico real
