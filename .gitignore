@@ -16,6 +16,10 @@ style.css
 logo.jfif
 estructura_archivos.txt
 
+# Dashboard — credenciales y caché (NO subir a GitHub)
+api/config.php
+api/cache.json
+
 # Editores
 .vscode/
 *.suo

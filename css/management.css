@@ -1,0 +1,462 @@
+/* ============================================================
+   MANAGEMENT — Dashboard interno Légamo
+   ============================================================ */
+
+.mgmt-body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.mgmt-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(20px, 4vw, 48px);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mgmt-header__title {
+  font-family: var(--font-d);
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mgmt-header__title span {
+  color: var(--muted);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.mgmt-header__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mgmt-updated {
+  font-family: var(--font-b);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.mgmt-updated b {
+  color: rgba(255,255,255,0.5);
+}
+
+.mgmt-refresh {
+  font-family: var(--font-b);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.mgmt-refresh:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+.mgmt-refresh:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Layout principal ───────────────────────────────────── */
+.mgmt-main {
+  padding: 32px clamp(20px, 4vw, 48px) 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Fila de KPIs ───────────────────────────────────────── */
+.mgmt-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kpi-card__label {
+  font-family: var(--font-b);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.kpi-card__value {
+  font-family: var(--font-d);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.kpi-card__value.loading {
+  color: var(--muted);
+  font-size: 1.4rem;
+}
+
+.kpi-card__platform {
+  font-family: var(--font-b);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.kpi-card--yt   .kpi-card__value { color: #ff4444; }
+.kpi-card--sp   .kpi-card__value { color: #1db954; }
+.kpi-card--ig   .kpi-card__value { color: #c13584; }
+.kpi-card--web  .kpi-card__value { color: var(--accent); }
+
+/* ── Grid de plataformas ────────────────────────────────── */
+.mgmt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.mgmt-grid--full {
+  grid-column: 1 / -1;
+}
+
+/* ── Panel genérico ─────────────────────────────────────── */
+.mgmt-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.mgmt-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mgmt-panel__name {
+  font-family: var(--font-d);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mgmt-panel__name .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot--yt { background: #ff4444; }
+.dot--sp { background: #1db954; }
+.dot--ig { background: #c13584; }
+.dot--ga { background: var(--accent); }
+
+.mgmt-panel__link {
+  font-family: var(--font-b);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s;
+}
+.mgmt-panel__link:hover { color: var(--text); }
+
+.mgmt-panel__body {
+  padding: 24px;
+  flex: 1;
+}
+
+/* ── Estadísticas secundarias ───────────────────────────── */
+.mgmt-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mgmt-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mgmt-stat__label {
+  font-family: var(--font-b);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mgmt-stat__val {
+  font-family: var(--font-d);
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* ── Tabla de videos/posts ──────────────────────────────── */
+.mgmt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-b);
+  font-size: 0.85rem;
+}
+
+.mgmt-table th {
+  text-align: left;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 8px 10px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 400;
+}
+
+.mgmt-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: middle;
+}
+
+.mgmt-table tr:last-child td { border-bottom: none; }
+
+.mgmt-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.mgmt-table .title-cell {
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mgmt-table .title-cell a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color .2s;
+}
+.mgmt-table .title-cell a:hover { color: var(--accent); }
+
+.mgmt-table .num {
+  text-align: right;
+  color: rgba(255,255,255,0.7);
+  white-space: nowrap;
+}
+
+.mgmt-table .date-cell {
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ── Barra de popularidad Spotify ───────────────────────── */
+.sp-popularity {
+  margin-bottom: 20px;
+}
+
+.sp-popularity__label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-b);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.sp-popularity__label b {
+  color: #1db954;
+  font-weight: 600;
+}
+
+.sp-popularity__track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.sp-popularity__fill {
+  height: 100%;
+  background: #1db954;
+  border-radius: 2px;
+  transition: width 1s ease;
+  width: 0;
+}
+
+.sp-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.sp-genre {
+  font-family: var(--font-b);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+}
+
+/* ── Instagram insights grid ────────────────────────────── */
+.ig-insights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.ig-insight {
+  background: var(--surf2);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+}
+
+.ig-insight__label {
+  font-family: var(--font-b);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.ig-insight__val {
+  font-family: var(--font-d);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #c13584;
+}
+
+/* ── Panel de error ─────────────────────────────────────── */
+.mgmt-error {
+  font-family: var(--font-b);
+  font-size: 0.85rem;
+  color: #ff6b6b;
+  padding: 16px;
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  background: rgba(255, 107, 107, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Google Analytics panel ─────────────────────────────── */
+.ga-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.ga-info {
+  font-family: var(--font-b);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+
+.ga-info b {
+  color: var(--text);
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.btn-ga {
+  display: inline-block;
+  font-family: var(--font-b);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--accent);
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background .2s;
+  white-space: nowrap;
+}
+
+.btn-ga:hover { background: var(--accentH); }
+
+/* ── Loading skeleton ───────────────────────────────────── */
+.skel {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--border) 25%, var(--surf2) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: skelShimmer 1.4s infinite;
+  border-radius: 2px;
+  color: transparent;
+  user-select: none;
+}
+
+@keyframes skelShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .mgmt-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mgmt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .mgmt-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mgmt-header__right .mgmt-updated { display: none; }
+
+  .mgmt-stats    { grid-template-columns: 1fr 1fr; }
+  .ig-insights   { grid-template-columns: 1fr 1fr; }
+}

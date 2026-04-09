@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Légamo</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" href="assets/logo.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/management.css">
+</head>
+
+<body class="mgmt-body">
+
+  <!-- ══════════════════════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════════════════════ -->
+  <header class="mgmt-header">
+    <div class="mgmt-header__title">
+      <img src="assets/logo.png" alt="Légamo" style="height:28px;opacity:.85;">
+      <span>Dashboard interno</span>
+    </div>
+    <div class="mgmt-header__right">
+      <p class="mgmt-updated" id="mgmt-updated">Cargando...</p>
+      <button class="mgmt-refresh" id="mgmt-refresh" onclick="cargarDatos(true)">↻ Actualizar</button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════
+       CONTENIDO
+  ══════════════════════════════════════════════════════════ -->
+  <main class="mgmt-main">
+
+    <!-- KPIs top -->
+    <div class="mgmt-kpis">
+      <div class="kpi-card kpi-card--yt">
+        <div class="kpi-card__label">Suscriptores YouTube</div>
+        <div class="kpi-card__value skel" id="kpi-yt-subs">———</div>
+        <div class="kpi-card__platform">YouTube</div>
+      </div>
+      <div class="kpi-card kpi-card--yt">
+        <div class="kpi-card__label">Vistas totales</div>
+        <div class="kpi-card__value skel" id="kpi-yt-views">———</div>
+        <div class="kpi-card__platform">YouTube</div>
+      </div>
+      <div class="kpi-card kpi-card--sp">
+        <div class="kpi-card__label">Seguidores Spotify</div>
+        <div class="kpi-card__value skel" id="kpi-sp-followers">———</div>
+        <div class="kpi-card__platform">Spotify</div>
+      </div>
+      <div class="kpi-card kpi-card--ig">
+        <div class="kpi-card__label">Seguidores Instagram</div>
+        <div class="kpi-card__value skel" id="kpi-ig-followers">———</div>
+        <div class="kpi-card__platform">Instagram</div>
+      </div>
+    </div>
+
+    <!-- Grid plataformas -->
+    <div class="mgmt-grid">
+
+      <!-- ── YouTube ─────────────────────────────────────── -->
+      <div class="mgmt-panel">
+        <div class="mgmt-panel__head">
+          <div class="mgmt-panel__name">
+            <span class="dot dot--yt"></span>YouTube
+          </div>
+          <a href="https://www.youtube.com/@legamooficial" target="_blank" rel="noopener" class="mgmt-panel__link">
+            @legamooficial ↗
+          </a>
+        </div>
+        <div class="mgmt-panel__body" id="yt-body">
+
+          <div class="mgmt-stats">
+            <div class="mgmt-stat">
+              <div class="mgmt-stat__label">Suscriptores</div>
+              <div class="mgmt-stat__val skel" id="yt-subs">—</div>
+            </div>
+            <div class="mgmt-stat">
+              <div class="mgmt-stat__label">Vistas totales</div>
+              <div class="mgmt-stat__val skel" id="yt-views">—</div>
+            </div>
+            <div class="mgmt-stat">
+              <div class="mgmt-stat__label">Videos</div>
+              <div class="mgmt-stat__val skel" id="yt-videos">—</div>
+            </div>
+          </div>
+
+          <table class="mgmt-table" id="yt-table">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th style="text-align:right">Vistas</th>
+                <th style="text-align:right">Likes</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody id="yt-tbody">
+              <tr><td colspan="4" class="skel" style="height:120px;"></td></tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+      <!-- ── Instagram ───────────────────────────────────── -->
+      <div class="mgmt-panel">
+        <div class="mgmt-panel__head">
+          <div class="mgmt-panel__name">
+            <span class="dot dot--ig"></span>Instagram
+          </div>
+          <a href="https://www.instagram.com/legamo_/" target="_blank" rel="noopener" class="mgmt-panel__link">
+            @legamo_ ↗
+          </a>
+        </div>
+        <div class="mgmt-panel__body" id="ig-body">
+
+          <div class="ig-insights">
+            <div class="ig-insight">
+              <div class="ig-insight__label">Seguidores</div>
+              <div class="ig-insight__val skel" id="ig-followers">—</div>
+            </div>
+            <div class="ig-insight">
+              <div class="ig-insight__label">Publicaciones</div>
+              <div class="ig-insight__val skel" id="ig-posts">—</div>
+            </div>
+            <div class="ig-insight">
+              <div class="ig-insight__label">Visitas perfil 7d</div>
+              <div class="ig-insight__val skel" id="ig-profile-views">—</div>
+            </div>
+            <div class="ig-insight">
+              <div class="ig-insight__label">Alcance 7d</div>
+              <div class="ig-insight__val skel" id="ig-reach">—</div>
+            </div>
+            <div class="ig-insight">
+              <div class="ig-insight__label">Impresiones 7d</div>
+              <div class="ig-insight__val skel" id="ig-impressions">—</div>
+            </div>
+          </div>
+
+          <table class="mgmt-table" id="ig-table">
+            <thead>
+              <tr>
+                <th>Post</th>
+                <th style="text-align:right">Likes</th>
+                <th style="text-align:right">Coment.</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody id="ig-tbody">
+              <tr><td colspan="4" class="skel" style="height:120px;"></td></tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+      <!-- ── Spotify ─────────────────────────────────────── -->
+      <div class="mgmt-panel">
+        <div class="mgmt-panel__head">
+          <div class="mgmt-panel__name">
+            <span class="dot dot--sp"></span>Spotify
+          </div>
+          <a href="https://open.spotify.com/artist/4Vpn3F6Qvpx5U8c6HP1TnZ" target="_blank" rel="noopener" class="mgmt-panel__link">
+            Ver en Spotify ↗
+          </a>
+        </div>
+        <div class="mgmt-panel__body" id="sp-body">
+
+          <div class="mgmt-stats" style="grid-template-columns:1fr 1fr;">
+            <div class="mgmt-stat">
+              <div class="mgmt-stat__label">Seguidores</div>
+              <div class="mgmt-stat__val skel" id="sp-followers">—</div>
+            </div>
+            <div class="mgmt-stat">
+              <div class="mgmt-stat__label">Popularidad</div>
+              <div class="mgmt-stat__val skel" id="sp-popularity">—</div>
+            </div>
+          </div>
+
+          <div class="sp-popularity">
+            <div class="sp-popularity__label">
+              <span>Score de popularidad</span>
+              <b id="sp-pop-val">—/100</b>
+            </div>
+            <div class="sp-popularity__track">
+              <div class="sp-popularity__fill" id="sp-pop-bar"></div>
+            </div>
+          </div>
+
+          <div class="sp-genres" id="sp-genres">
+            <span class="sp-genre skel">—————</span>
+            <span class="sp-genre skel">———</span>
+          </div>
+
+          <div style="margin-top:20px;">
+            <p style="font-family:var(--font-b);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Últimos lanzamientos</p>
+            <div id="sp-albums"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Google Analytics ────────────────────────────── -->
+      <div class="mgmt-panel">
+        <div class="mgmt-panel__head">
+          <div class="mgmt-panel__name">
+            <span class="dot dot--ga"></span>Google Analytics
+          </div>
+        </div>
+        <div class="mgmt-panel__body">
+          <div class="ga-panel">
+            <div class="ga-info">
+              <b>legamo.proyectoenjambre.cl</b>
+              Tráfico web, sesiones, usuarios y fuentes de visitas. Los datos se actualizan en tiempo real en el dashboard de Google Analytics.
+              <br><br>
+              <span style="opacity:.5;font-size:0.8rem;">ID: G-T94X42T9TQ — instalado en las 4 páginas</span>
+            </div>
+            <a href="https://analytics.google.com/" target="_blank" rel="noopener" class="btn-ga">
+              Ver Analytics ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /mgmt-grid -->
+  </main>
+
+  <script>
+  // ══════════════════════════════════════════════════════════
+  // DASHBOARD — Légamo
+  // ══════════════════════════════════════════════════════════
+
+  const fmt = n => new Intl.NumberFormat('es-CL').format(n);
+
+  function removeSkel(el) {
+    el.classList.remove('skel');
+  }
+
+  function showError(container, msg) {
+    container.innerHTML = `<div class="mgmt-error">⚠ ${msg}</div>`;
+  }
+
+  function timeAgo(ts) {
+    const diff = Math.floor((Date.now() / 1000) - ts);
+    if (diff < 60)   return 'hace menos de un minuto';
+    if (diff < 3600) return `hace ${Math.floor(diff / 60)} min`;
+    if (diff < 86400)return `hace ${Math.floor(diff / 3600)} h`;
+    return `hace ${Math.floor(diff / 86400)} días`;
+  }
+
+  // ── Render YouTube ───────────────────────────────────────
+  function renderYouTube(yt) {
+    if (yt.error) {
+      showError(document.getElementById('yt-body'), yt.error);
+      return;
+    }
+
+    const subs  = fmt(yt.subscribers);
+    const views = fmt(yt.views);
+    const vids  = fmt(yt.videos);
+
+    ['kpi-yt-subs', 'yt-subs'].forEach(id => {
+      const el = document.getElementById(id);
+      removeSkel(el); el.textContent = subs;
+    });
+    ['kpi-yt-views', 'yt-views'].forEach(id => {
+      const el = document.getElementById(id);
+      removeSkel(el); el.textContent = views;
+    });
+    const ytVids = document.getElementById('yt-videos');
+    removeSkel(ytVids); ytVids.textContent = vids;
+
+    // Tabla de videos
+    const tbody = document.getElementById('yt-tbody');
+    tbody.innerHTML = (yt.latest || []).map(v => `
+      <tr>
+        <td class="title-cell">
+          <a href="${v.url}" target="_blank" rel="noopener">${v.title}</a>
+        </td>
+        <td class="num">${fmt(v.views)}</td>
+        <td class="num">${fmt(v.likes)}</td>
+        <td class="date-cell">${v.published}</td>
+      </tr>
+    `).join('') || '<tr><td colspan="4" style="color:var(--muted);padding:16px 8px;">Sin videos disponibles</td></tr>';
+  }
+
+  // ── Render Spotify ───────────────────────────────────────
+  function renderSpotify(sp) {
+    if (sp.error) {
+      showError(document.getElementById('sp-body'), sp.error);
+      return;
+    }
+
+    const fol = fmt(sp.followers);
+    const pop = sp.popularity;
+
+    ['kpi-sp-followers', 'sp-followers'].forEach(id => {
+      const el = document.getElementById(id);
+      removeSkel(el); el.textContent = fol;
+    });
+
+    const spPop = document.getElementById('sp-popularity');
+    removeSkel(spPop); spPop.textContent = pop;
+
+    const spPopVal = document.getElementById('sp-pop-val');
+    spPopVal.textContent = `${pop}/100`;
+
+    // Animar barra con pequeño delay
+    setTimeout(() => {
+      document.getElementById('sp-pop-bar').style.width = pop + '%';
+    }, 300);
+
+    // Géneros
+    const genresEl = document.getElementById('sp-genres');
+    genresEl.innerHTML = (sp.genres || []).length
+      ? sp.genres.map(g => `<span class="sp-genre">${g}</span>`).join('')
+      : '<span class="sp-genre" style="color:var(--muted)">Sin géneros registrados</span>';
+
+    // Álbumes
+    const albumsEl = document.getElementById('sp-albums');
+    albumsEl.innerHTML = (sp.albums || []).map(a => `
+      <div style="display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);">
+        <div style="font-family:var(--font-b);flex:1;">
+          <a href="${a.url}" target="_blank" rel="noopener"
+             style="color:var(--text);text-decoration:none;font-size:.9rem;">${a.name}</a>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.1em;">${a.type} · ${a.released}</div>
+        </div>
+      </div>
+    `).join('') || '<p style="color:var(--muted);font-family:var(--font-b);font-size:.85rem;">Sin lanzamientos disponibles</p>';
+  }
+
+  // ── Render Instagram ─────────────────────────────────────
+  function renderInstagram(ig) {
+    if (ig.error) {
+      showError(document.getElementById('ig-body'), ig.error);
+      ['kpi-ig-followers'].forEach(id => {
+        const el = document.getElementById(id);
+        removeSkel(el); el.textContent = '—';
+      });
+      return;
+    }
+
+    ['kpi-ig-followers', 'ig-followers'].forEach(id => {
+      const el = document.getElementById(id);
+      removeSkel(el); el.textContent = fmt(ig.followers);
+    });
+
+    const igPosts = document.getElementById('ig-posts');
+    removeSkel(igPosts); igPosts.textContent = fmt(ig.posts);
+
+    const igReach = document.getElementById('ig-reach');
+    removeSkel(igReach); igReach.textContent = fmt(ig.reach_7d);
+
+    const igImp = document.getElementById('ig-impressions');
+    removeSkel(igImp); igImp.textContent = fmt(ig.impressions_7d);
+
+    const igPV = document.getElementById('ig-profile-views');
+    removeSkel(igPV); igPV.textContent = fmt(ig.profile_views_7d);
+
+    // Tabla de posts
+    const tbody = document.getElementById('ig-tbody');
+    tbody.innerHTML = (ig.latest_posts || []).map(p => `
+      <tr>
+        <td class="title-cell">
+          <a href="${p.url}" target="_blank" rel="noopener">
+            ${p.caption || '(sin caption)'}...
+          </a>
+        </td>
+        <td class="num">${fmt(p.likes)}</td>
+        <td class="num">${fmt(p.comments)}</td>
+        <td class="date-cell">${p.date}</td>
+      </tr>
+    `).join('') || '<tr><td colspan="4" style="color:var(--muted);padding:16px 8px;">Sin posts disponibles</td></tr>';
+  }
+
+  // ── Carga principal ──────────────────────────────────────
+  async function cargarDatos(force = false) {
+    const btn = document.getElementById('mgmt-refresh');
+    btn.disabled = true;
+    btn.textContent = '↻ Cargando...';
+
+    document.getElementById('mgmt-updated').textContent = 'Actualizando...';
+
+    try {
+      const url = force ? 'api/stats.php?refresh=1' : 'api/stats.php';
+      const res = await fetch(url);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json();
+
+      renderYouTube(data.youtube || { error: 'Sin datos' });
+      renderSpotify(data.spotify || { error: 'Sin datos' });
+      renderInstagram(data.instagram || { error: 'Sin datos' });
+
+      const cached = data.cached ? ' (caché)' : '';
+      document.getElementById('mgmt-updated').innerHTML =
+        `Actualizado: <b>${timeAgo(data.timestamp)}${cached}</b>`;
+
+    } catch (err) {
+      document.getElementById('mgmt-updated').textContent = 'Error al cargar datos';
+      console.error('Dashboard error:', err);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '↻ Actualizar';
+    }
+  }
+
+  // Cargar al iniciar
+  cargarDatos();
+  </script>
+
+</body>
+</html>
