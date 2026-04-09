@@ -58,6 +58,48 @@
   color: rgba(255,255,255,0.5);
 }
 
+/* ── Botones de exportación ─────────────────────────────── */
+.mgmt-export-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.mgmt-export-btn {
+  font-family: var(--font-b);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: background .2s, color .2s;
+}
+
+.mgmt-export-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.mgmt-export-btn--csv {
+  color: #1db954;
+  background: transparent;
+  border-color: #1db954;
+}
+.mgmt-export-btn--csv:not(:disabled):hover {
+  background: #1db954;
+  color: #000;
+}
+
+.mgmt-export-btn--pdf {
+  color: #ff6b6b;
+  background: transparent;
+  border-color: #ff6b6b;
+}
+.mgmt-export-btn--pdf:not(:disabled):hover {
+  background: #ff6b6b;
+  color: #000;
+}
+
 .mgmt-refresh {
   font-family: var(--font-b);
   font-size: 0.75rem;
@@ -459,4 +501,103 @@
 
   .mgmt-stats    { grid-template-columns: 1fr 1fr; }
   .ig-insights   { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Impresión / PDF ─────────────────────────────────────── */
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body { background: #fff !important; color: #000 !important; }
+
+  .mgmt-header {
+    position: static;
+    background: #fff !important;
+    border-bottom: 2px solid #000;
+    padding: 12px 24px;
+  }
+
+  .mgmt-header__title { color: #000 !important; }
+  .mgmt-header__title span { color: #555 !important; }
+
+  /* Ocultar controles interactivos */
+  .mgmt-export-btns,
+  .mgmt-refresh,
+  .mgmt-panel__link,
+  .btn-ga,
+  .skel { display: none !important; }
+
+  .mgmt-main { padding: 16px 24px; }
+
+  /* KPIs en fila */
+  .mgmt-kpis {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .kpi-card {
+    background: #f5f5f5 !important;
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+  }
+
+  .kpi-card__value { color: #000 !important; font-size: 1.6rem !important; }
+  .kpi-card__label,
+  .kpi-card__platform { color: #555 !important; }
+
+  /* Paneles en columna única */
+  .mgmt-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  .mgmt-panel {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+  }
+
+  .mgmt-panel__head {
+    background: #f0f0f0 !important;
+    border-bottom: 1px solid #ccc !important;
+  }
+
+  .mgmt-panel__name { color: #000 !important; }
+
+  .mgmt-panel__body { padding: 16px !important; }
+
+  /* Tablas */
+  .mgmt-table th { color: #555 !important; border-bottom: 1px solid #ccc !important; }
+  .mgmt-table td { color: #000 !important; border-bottom: 1px solid #eee !important; }
+  .mgmt-table .title-cell a { color: #000 !important; }
+  .mgmt-table .num { color: #333 !important; }
+
+  /* Stats */
+  .mgmt-stat__label { color: #555 !important; }
+  .mgmt-stat__val   { color: #000 !important; }
+
+  /* Instagram insights */
+  .ig-insight {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+  }
+  .ig-insight__label { color: #555 !important; }
+  .ig-insight__val   { color: #000 !important; }
+
+  /* Spotify */
+  .sp-popularity__label { color: #555 !important; }
+  .sp-popularity__label b { color: #1db954 !important; }
+  .sp-popularity__track { background: #ddd !important; }
+  .sp-genre { color: #555 !important; border-color: #ccc !important; }
+
+  /* Dots de color se mantienen */
+  .dot--yt { background: #ff4444 !important; }
+  .dot--sp { background: #1db954 !important; }
+  .dot--ig { background: #c13584 !important; }
+  .dot--ga { background: #2a7d2a !important; }
+
+  /* GA panel simplificado */
+  .ga-info { color: #333 !important; }
+  .ga-info b { color: #000 !important; }
+
+  /* Timestamp visible al imprimir */
+  .mgmt-updated { color: #555 !important; }
+  .mgmt-updated b { color: #000 !important; }
 }

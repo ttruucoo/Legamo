@@ -28,6 +28,10 @@
     </div>
     <div class="mgmt-header__right">
       <p class="mgmt-updated" id="mgmt-updated">Cargando...</p>
+      <div class="mgmt-export-btns">
+        <button class="mgmt-export-btn mgmt-export-btn--csv" id="btn-csv" onclick="exportarExcel()" disabled>⬇ Excel</button>
+        <button class="mgmt-export-btn mgmt-export-btn--pdf" id="btn-pdf" onclick="exportarPDF()" disabled>⬇ PDF</button>
+      </div>
       <button class="mgmt-refresh" id="mgmt-refresh" onclick="cargarDatos(true)">↻ Actualizar</button>
     </div>
   </header>
@@ -238,6 +242,9 @@
 
   const fmt = n => new Intl.NumberFormat('es-CL').format(n);
 
+  // Almacena los últimos datos cargados para exportar
+  let _lastData = null;
+
   function removeSkel(el) {
     el.classList.remove('skel');
   }
@@ -395,9 +402,14 @@
 
       const data = await res.json();
 
+      _lastData = data;
       renderYouTube(data.youtube || { error: 'Sin datos' });
       renderSpotify(data.spotify || { error: 'Sin datos' });
       renderInstagram(data.instagram || { error: 'Sin datos' });
+
+      // Habilitar botones de exportación
+      document.getElementById('btn-csv').disabled = false;
+      document.getElementById('btn-pdf').disabled = false;
 
       const cached = data.cached ? ' (caché)' : '';
       document.getElementById('mgmt-updated').innerHTML =
@@ -410,6 +422,82 @@
       btn.disabled = false;
       btn.textContent = '↻ Actualizar';
     }
+  }
+
+  // ── Exportar PDF ─────────────────────────────────────────
+  function exportarPDF() {
+    document.title = 'Légamo — Dashboard ' + new Date().toLocaleDateString('es-CL');
+    window.print();
+  }
+
+  // ── Exportar Excel (CSV) ──────────────────────────────────
+  function exportarExcel() {
+    if (!_lastData) return;
+
+    const d   = _lastData;
+    const yt  = d.youtube   || {};
+    const sp  = d.spotify   || {};
+    const ig  = d.instagram || {};
+    const fecha = new Date(d.timestamp * 1000).toLocaleString('es-CL');
+
+    const filas = [];
+
+    // Encabezado
+    filas.push(['LÉGAMO — REPORTE DE ESTADÍSTICAS']);
+    filas.push([`Generado el: ${fecha}`]);
+    filas.push([]);
+
+    // ── YouTube ──
+    filas.push(['YOUTUBE']);
+    filas.push(['Suscriptores', 'Vistas totales', 'Videos publicados']);
+    filas.push([yt.subscribers ?? '—', yt.views ?? '—', yt.videos ?? '—']);
+    filas.push([]);
+    filas.push(['ÚLTIMOS VIDEOS']);
+    filas.push(['Título', 'Vistas', 'Likes', 'Comentarios', 'Fecha publicación', 'URL']);
+    (yt.latest || []).forEach(v => {
+      filas.push([v.title, v.views, v.likes, v.comments, v.published, v.url]);
+    });
+    filas.push([]);
+
+    // ── Spotify ──
+    filas.push(['SPOTIFY']);
+    filas.push(['Seguidores', 'Popularidad (0-100)', 'Géneros']);
+    filas.push([sp.followers ?? '—', sp.popularity ?? '—', (sp.genres || []).join(' / ')]);
+    filas.push([]);
+    filas.push(['ÚLTIMOS LANZAMIENTOS']);
+    filas.push(['Nombre', 'Tipo', 'Fecha lanzamiento', 'URL']);
+    (sp.albums || []).forEach(a => {
+      filas.push([a.name, a.type, a.released, a.url]);
+    });
+    filas.push([]);
+
+    // ── Instagram ──
+    filas.push(['INSTAGRAM']);
+    filas.push(['Seguidores', 'Publicaciones', 'Alcance 7d', 'Impresiones 7d', 'Visitas perfil 7d']);
+    filas.push([ig.followers ?? '—', ig.posts ?? '—', ig.reach_7d ?? '—', ig.impressions_7d ?? '—', ig.profile_views_7d ?? '—']);
+    filas.push([]);
+    filas.push(['ÚLTIMOS POSTS']);
+    filas.push(['Caption', 'Likes', 'Comentarios', 'Tipo', 'Fecha', 'URL']);
+    (ig.latest_posts || []).forEach(p => {
+      filas.push([p.caption, p.likes, p.comments, p.type, p.date, p.url]);
+    });
+
+    // Convertir a CSV con BOM para que Excel abra correctamente en español
+    const csv = '\uFEFF' + filas.map(row =>
+      row.map(cell => {
+        const val = String(cell ?? '').replace(/"/g, '""');
+        return val.includes(',') || val.includes('\n') || val.includes('"')
+          ? `"${val}"` : val;
+      }).join(',')
+    ).join('\n');
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = `legamo-stats-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
   // Cargar al iniciar
